@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.collections.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="595.0" prefWidth="763.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="sample.FineCreditSettings">
+  <children>
+    <TitledPane animated="false" layoutX="14.0" layoutY="2.0" minWidth="735.0" prefHeight="185.0" prefWidth="735.0" text="Fine Free">
+      <content>
+        <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="147.0" prefWidth="732.0">
+          <children>
+            <Label layoutX="133.0" layoutY="14.0" text="Batch" textAlignment="RIGHT">
+              <font>
+                <Font name="System Bold" size="18.0" fx:id="x1" />
+              </font>
+            </Label>
+            <Label font="$x1" layoutX="131.0" layoutY="53.0" text="Department" textAlignment="RIGHT" />
+            <Label font="$x1" layoutX="133.0" layoutY="90.0" text="Month" textAlignment="RIGHT" />
+            <ComboBox id="ffbatch" fx:id="ffBatch" editable="false" layoutX="276.0" layoutY="14.0" onAction="#loadBatches" prefHeight="24.0" prefWidth="111.0" promptText="Select Batch" />
+            <ComboBox fx:id="ffDept" editable="false" layoutX="274.0" layoutY="53.0" onAction="#loadDept" prefHeight="24.0" prefWidth="111.0" promptText="Select Dept" />
+            <ComboBox fx:id="ffMonth" editable="true" layoutX="274.0" layoutY="90.0" onAction="#loadMonth" prefHeight="24.0" prefWidth="111.0" promptText="Select Month" />
+            <Button fx:id="ffUpdate" layoutX="510.0" layoutY="106.0" mnemonicParsing="false" onAction="#fineFreeUpdate" text="Update" textAlignment="LEFT">
+              <effect>
+                <InnerShadow />
+              </effect>
+              <font>
+                <Font name="System Bold" size="15.0" fx:id="x2" />
+              </font>
+            </Button>
+            <Label font="$x1" layoutX="133.0" layoutY="114.0" text="Year" textAlignment="RIGHT" />
+            <TextField fx:id="ffYear" layoutX="274.0" layoutY="119.0" prefWidth="111.0" />
+          </children>
+        </AnchorPane>
+      </content>
+      <font>
+        <Font name="System Bold Italic" size="18.0" />
+      </font>
+    </TitledPane>
+    <TitledPane animated="false" layoutX="14.0" layoutY="188.0" prefHeight="197.0" prefWidth="735.0" text="Fine Rule">
+      <content>
+        <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="184.0" prefWidth="688.0">
+          <children>
+            <Label font="$x1" layoutX="133.0" layoutY="14.0" text="Batch" textAlignment="RIGHT" />
+            <ComboBox fx:id="frBatch" editable="false" layoutX="274.0" layoutY="14.0" onAction="#loadBatches" prefHeight="27.0" prefWidth="111.0" promptText="Select Batch" />
+            <CheckBox fx:id="frCheckbox" layoutX="135.0" layoutY="109.0" mnemonicParsing="false" text="Apply for subsecuent for batches">
+              <effect>
+                <SepiaTone />
+              </effect>
+              <font>
+                <Font name="System Bold Italic" size="15.0" fx:id="x3" />
+              </font>
+            </CheckBox>
+            <Label font="$x1" layoutX="133.0" layoutY="58.0" text="Taka" textAlignment="RIGHT" />
+            <TextField fx:id="frTaka" layoutX="272.0" layoutY="55.0" prefHeight="27.0" prefWidth="111.0" promptText="Amount of Fine" />
+            <Button fx:id="frUpdate" font="$x2" layoutX="502.0" layoutY="121.0" mnemonicParsing="false" onAction="#fineRuleUpdate" text="Update">
+              <effect>
+                <InnerShadow />
+              </effect>
+            </Button>
+          </children>
+        </AnchorPane>
+      </content>
+    </TitledPane>
+    <TitledPane animated="false" layoutX="15.0" layoutY="387.0" prefHeight="206.0" prefWidth="735.0" text="Credit Rule">
+      <content>
+        <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="126.0" prefWidth="608.0">
+          <children>
+            <Label font="$x1" layoutX="131.0" layoutY="10.0" text="Batch" textAlignment="RIGHT" />
+            <ComboBox fx:id="crBatch" editable="false" layoutX="275.0" layoutY="11.0" onAction="#loadBatches" prefHeight="27.0" prefWidth="111.0" promptText="Select Batch" />
+            <Label font="$x1" layoutX="131.0" layoutY="56.0" text="Min Day" textAlignment="RIGHT" />
+            <Label font="$x1" layoutX="131.0" layoutY="95.0" text="Max Day" textAlignment="RIGHT" />
+            <CheckBox fx:id="crCheckbox" font="$x3" layoutX="131.0" layoutY="131.0" mnemonicParsing="false" text="Apply for subsecuent for batches">
+              <effect>
+                <SepiaTone />
+              </effect>
+            </CheckBox>
+            <TextField fx:id="crMini" layoutX="275.0" layoutY="55.0" prefHeight="27.0" prefWidth="111.0" promptText="Minimum Day" />
+            <TextField fx:id="crMax" alignment="CENTER_LEFT" layoutX="275.0" layoutY="91.0" prefHeight="27.0" prefWidth="111.0" promptText="Maximum Day" />
+            <Button fx:id="crUpdate" font="$x2" layoutX="505.0" layoutY="125.0" mnemonicParsing="false" onAction="#creditRulwUpdate" text="Update">
+              <effect>
+                <InnerShadow />
+              </effect>
+            </Button>
+          </children>
+        </AnchorPane>
+      </content>
+    </TitledPane>
+  </children>
+</AnchorPane>

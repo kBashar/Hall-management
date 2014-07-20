@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="572.9999000000025" prefWidth="564.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="sample.StudentDataEntryController">
+  <children>
+    <VBox id="VBox" alignment="CENTER_LEFT" layoutX="120.0" layoutY="132.0" spacing="15.0">
+      <children>
+        <Label prefHeight="20.0" prefWidth="85.0" text="ID">
+          <font>
+            <Font size="18.0" fx:id="x1" />
+          </font>
+        </Label>
+        <Label font="$x1" prefHeight="20.0" prefWidth="85.0" text="Name " />
+        <Label font="$x1" prefHeight="24.0" prefWidth="111.0" text="Room No. " />
+        <Label font="$x1" prefHeight="24.0" prefWidth="148.0" text="Contact number " />
+        <Label font="$x1" prefHeight="24.0" prefWidth="125.0" text="Parent name" />
+        <Label font="$x1" prefHeight="24.0" prefWidth="148.0" text="Parent Number " />
+        <Label font="$x1" prefHeight="24.0" prefWidth="125.0" text="Blood Group " />
+        <Label font="$x1" prefHeight="20.0" prefWidth="85.0" text="Picture" />
+      </children>
+    </VBox>
+    <VBox id="VBox" alignment="CENTER" layoutX="282.0" layoutY="134.0" spacing="6.0">
+      <children>
+        <TextField fx:id="id" prefHeight="32.0" prefWidth="200.0" promptText="ID" text="" />
+        <TextField fx:id="name" prefHeight="32.0" prefWidth="200.0" promptText="Name" text="" />
+        <TextField fx:id="room" prefHeight="32.0" prefWidth="200.0" promptText="Room" text="" />
+        <TextField fx:id="contact" prefHeight="32.0" prefWidth="200.0" promptText="Contact" text="" />
+        <TextField fx:id="parent" prefHeight="32.0" prefWidth="200.0" promptText="Parent" text="" />
+        <TextField fx:id="parent_contact" prefHeight="32.0" prefWidth="200.0" promptText="Parent Contact" text="" />
+        <TextField fx:id="blood_group" prefHeight="32.0" prefWidth="200.0" promptText="Blood Group" text="" />
+        <TextField prefHeight="32.0" prefWidth="200.0" promptText="Image" text="" />
+      </children>
+    </VBox>
+    <VBox id="VBox" alignment="CENTER" layoutX="268.0" layoutY="138.0" spacing="18.0">
+      <children>
+        <Label text=":">
+          <font>
+            <Font size="15.0" fx:id="x2" />
+          </font>
+        </Label>
+        <Label font="$x2" text=":" />
+        <Label font="$x2" text=":" />
+        <Label font="$x2" text=":" />
+        <Label font="$x2" text=":" />
+        <Label font="$x2" text=":" />
+        <Label font="$x2" text=":" />
+        <Label font="$x2" text=":" />
+      </children>
+    </VBox>
+    <AnchorPane id="AnchorPane" layoutX="413.0" layoutY="486.0" prefHeight="22.0" />
+    <Label layoutX="137.0" layoutY="75.0" prefWidth="311.0" text="STUDENT INFORMATION DATA">
+      <font>
+        <Font name="System Bold" size="20.0" />
+      </font>
+    </Label>
+    <Button fx:id="saveButton" layoutX="426.0" layoutY="455.0" mnemonicParsing="false" onAction="#saveButttonClicked" prefHeight="24.0" prefWidth="59.0" text="Save" />
+    <AnchorPane id="AnchorPane" layoutX="491.0" layoutY="479.0" prefHeight="22.0">
+      <children>
+        <Button layoutX="-5.0" layoutY="-78.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="68.0" text="Browse" />
+      </children>
+    </AnchorPane>
+  </children>
+</AnchorPane>

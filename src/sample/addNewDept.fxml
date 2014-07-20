@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" fx:id="addnewDept" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+            minWidth="-Infinity" prefHeight="200.0" prefWidth="293.0" xmlns:fx="http://javafx.com/fxml/1"
+            xmlns="http://javafx.com/javafx/2.2" fx:controller="sample.AddNewDept">
+    <children>
+        <Label layoutX="16.0" layoutY="61.0" text="Department Name">
+            <font>
+                <Font name="System Bold" size="15.0" fx:id="x1"/>
+            </font>
+        </Label>
+        <Label font="$x1" layoutX="18.0" layoutY="93.0" text="Department ID"/>
+        <TextField fx:id="deptName" layoutX="150.0" layoutY="59.0" prefWidth="119.0"/>
+        <TextField fx:id="deptID" layoutX="151.0" layoutY="93.0" prefWidth="119.0"/>
+        <Button fx:id="addnewDeptButton" layoutX="125.0" layoutY="142.0" mnemonicParsing="false"
+                onAction="#addnewDeptButtonClicked" text="Add New" textFill="WHITE">
+            <font>
+                <Font name="System Bold Italic" size="15.0"/>
+            </font>
+        </Button>
+    </children>
+</AnchorPane>

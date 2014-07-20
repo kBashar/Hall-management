@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="657.0000999999975" prefWidth="717.0" xmlns:fx="http://javafx.com/fxml/1"
+            xmlns="http://javafx.com/javafx/2.2" fx:controller="sample.PropertyController">
+    <children>
+        <AnchorPane id="AnchorPane" layoutX="51.0" layoutY="85.0" prefWidth="453.0">
+            <children>
+                <HBox id="HBox" alignment="CENTER" prefHeight="255.0" prefWidth="682.0" spacing="5.0"
+                      AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                      AnchorPane.topAnchor="0.0">
+                    <children>
+                        <VBox id="VBox" alignment="CENTER_LEFT" prefWidth="112.0" spacing="5.0">
+                            <children>
+                                <Label prefWidth="75.0" text="Name    ">
+                                    <font>
+                                        <Font size="15.0" fx:id="x1"/>
+                                    </font>
+                                </Label>
+                                <Label font="$x1" prefWidth="76.0" text="Id"/>
+                                <Label font="$x1" prefWidth="75.0" text="Batch        "/>
+                                <Label font="$x1" prefWidth="75.00009999999747" text="Dept.       "/>
+                                <Label font="$x1" prefWidth="76.0" text="Room No. "/>
+                                <Label font="$x1" prefWidth="112.0" text="Contact number"/>
+                                <Label font="$x1" prefWidth="112.0" text="Parent name"/>
+                                <Label font="$x1" prefWidth="112.0" text="Parent contact"/>
+                                <Label font="$x1" prefWidth="105.0" text="Blood group"/>
+                            </children>
+                        </VBox>
+                        <VBox id="VBox" alignment="CENTER" prefWidth="19.0" spacing="5.0">
+                            <children>
+                                <Label font="$x1" prefWidth="20.0" text=":"/>
+                                <Label font="$x1" prefWidth="20.0" text=":"/>
+                                <Label font="$x1" prefWidth="20.0" text=":"/>
+                                <Label font="$x1" prefWidth="20.0" text=":"/>
+                                <Label font="$x1" prefWidth="20.0" text=":"/>
+                                <Label font="$x1" prefWidth="18.9998779296875" text=":"/>
+                                <Label font="$x1" prefWidth="75.0" text=":"/>
+                                <Label font="$x1" prefWidth="75.0" text=":"/>
+                                <Label font="$x1" prefWidth="75.0" text=":"/>
+                            </children>
+                        </VBox>
+                        <VBox id="VBox" alignment="CENTER" prefWidth="177.0" spacing="5.0">
+                            <children>
+                                <Label font="$x1" prefWidth="186.0" text="Aurangajeb Alam"/>
+                                <Label font="$x1" prefWidth="186.0" text="1104056"/>
+                                <Label font="$x1" prefWidth="186.0" text="'11"/>
+                                <Label font="$x1" prefWidth="186.0" text="CSE"/>
+                                <Label font="$x1" prefWidth="186.0" text="100"/>
+                                <Label font="$x1" prefWidth="186.0" text="01619131313"/>
+                                <Label font="$x1" prefWidth="186.0" text="MD. ....."/>
+                                <Label font="$x1" prefWidth="186.0" text="01......"/>
+                                <Label font="$x1" prefWidth="186.0" text="A+"/>
+                            </children>
+                        </VBox>
+                    </children>
+                </HBox>
+            </children>
+        </AnchorPane>
+        <TitledPane animated="false" layoutX="51.0" layoutY="340.0" prefHeight="111.0" prefWidth="616.0"
+                    text="DInning Payment Information">
+            <content>
+                <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                    <children>
+                        <AnchorPane id="AnchorPane" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                                    AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                            <children>
+                                <TableView layoutY="25.0" prefHeight="60.0" prefWidth="612.0000999999975"
+                                           AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                                    <columns>
+                                        <TableColumn prefWidth="75.0" text="January"/>
+                                        <TableColumn prefWidth="75.0" text="February"/>
+                                        <TableColumn prefWidth="75.0" text="March"/>
+                                        <TableColumn prefWidth="75.0" text="April"/>
+                                        <TableColumn prefWidth="75.0" text="May"/>
+                                        <TableColumn prefWidth="75.0" text="June"/>
+                                        <TableColumn prefWidth="75.0" text="July"/>
+                                        <TableColumn prefWidth="75.0" text="August"/>
+                                        <TableColumn prefWidth="75.0" text="September"/>
+                                        <TableColumn prefWidth="75.0" text="October"/>
+                                        <TableColumn prefWidth="75.0" text="November"/>
+                                        <TableColumn prefWidth="75.0" text="December"/>
+                                    </columns>
+                                </TableView>
+                                <AnchorPane layoutY="0.0" prefHeight="24.0" prefWidth="612.0"
+                                            AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                                    <children>
+                                        <HBox id="HBox" alignment="CENTER_LEFT" layoutY="4.0" spacing="5.0"
+                                              AnchorPane.leftAnchor="0.0">
+                                            <children>
+                                                <Label text="Year :"/>
+                                                <Label text="2013"/>
+                                            </children>
+                                        </HBox>
+                                        <HBox id="HBox" alignment="CENTER_RIGHT" layoutY="2.0" spacing="5.0"
+                                              AnchorPane.rightAnchor="0.0">
+                                            <children>
+                                                <Button mnemonicParsing="false" text="Back to previous year"/>
+                                                <Button mnemonicParsing="false" text="Current year"/>
+                                            </children>
+                                        </HBox>
+                                    </children>
+                                </AnchorPane>
+                            </children>
+                        </AnchorPane>
+                    </children>
+                </AnchorPane>
+            </content>
+        </TitledPane>
+        <AnchorPane id="AnchorPane" layoutX="524.0" layoutY="102.0" prefWidth="141.0">
+            <children>
+                <HBox id="HBox" alignment="CENTER" prefWidth="682.0" spacing="5.0" AnchorPane.bottomAnchor="0.0"
+                      AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <children>
+                        <ImageView fitHeight="111.0" fitWidth="148.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="file:/D:/JAVA%20PROJECT/NorthHall/src/northhall/SAM_1614.jpg"/>
+                            </image>
+                        </ImageView>
+                    </children>
+                </HBox>
+            </children>
+        </AnchorPane>
+        <TitledPane animated="false" layoutX="51.0" layoutY="461.0" prefHeight="111.0" prefWidth="616.0"
+                    text="Student credit">
+            <content>
+                <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                    <children>
+                        <AnchorPane id="AnchorPane" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                                    AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                            <children>
+                                <TableView layoutY="25.0" prefHeight="60.0" prefWidth="612.0000999999975"
+                                           AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                                    <columns>
+                                        <TableColumn prefWidth="75.0" text="January"/>
+                                        <TableColumn prefWidth="75.0" text="February"/>
+                                        <TableColumn prefWidth="75.0" text="March"/>
+                                        <TableColumn prefWidth="75.0" text="April"/>
+                                        <TableColumn prefWidth="75.0" text="May"/>
+                                        <TableColumn prefWidth="75.0" text="June"/>
+                                        <TableColumn prefWidth="75.0" text="July"/>
+                                        <TableColumn prefWidth="75.0" text="August"/>
+                                        <TableColumn prefWidth="75.0" text="September"/>
+                                        <TableColumn prefWidth="75.0" text="October"/>
+                                        <TableColumn prefWidth="75.0" text="November"/>
+                                        <TableColumn prefWidth="75.0" text="December"/>
+                                    </columns>
+                                </TableView>
+                                <AnchorPane layoutY="0.0" prefHeight="24.0" prefWidth="612.0"
+                                            AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                                    <children>
+                                        <HBox id="HBox" alignment="CENTER_LEFT" layoutY="4.0" spacing="5.0"
+                                              AnchorPane.leftAnchor="0.0">
+                                            <children>
+                                                <Label text="Year :"/>
+                                                <Label text="2013"/>
+                                            </children>
+                                        </HBox>
+                                        <HBox id="HBox" alignment="CENTER_RIGHT" layoutY="2.0" spacing="5.0"
+                                              AnchorPane.rightAnchor="0.0">
+                                            <children>
+                                                <Button mnemonicParsing="false" text="Back to previous year"/>
+                                                <Button mnemonicParsing="false" text="Current year"/>
+                                            </children>
+                                        </HBox>
+                                    </children>
+                                </AnchorPane>
+                            </children>
+                        </AnchorPane>
+                    </children>
+                </AnchorPane>
+            </content>
+        </TitledPane>
+        <AnchorPane id="AnchorPane" layoutX="0.0" layoutY="33.0" prefHeight="43.0" prefWidth="717.0">
+            <children>
+                <HBox id="HBox" alignment="CENTER" prefHeight="43.0" prefWidth="682.0" spacing="5.0"
+                      AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                      AnchorPane.topAnchor="0.0">
+                    <children>
+                        <Label text="PROPRETY">
+                            <font>
+                                <Font name="System Bold" size="18.0"/>
+                            </font>
+                        </Label>
+                    </children>
+                </HBox>
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="674.0" prefWidth="1143.0" xmlns:fx="http://javafx.com/fxml/1"
+            xmlns="http://javafx.com/javafx/2.2" fx:controller="sample.SampleController">
+    <children>
+        <SplitPane dividerPositions="0.17791411042944785" focusTraversable="true" prefHeight="-1.0" prefWidth="-1.0"
+                   AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                   AnchorPane.topAnchor="22.0">
+            <items>
+                <AnchorPane maxHeight="-1.0" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+                            prefHeight="-1.0" prefWidth="200.0">
+                    <children>
+                        <TreeView maxWidth="-Infinity" minWidth="-Infinity" prefHeight="573.0" prefWidth="200.0"
+                                  AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                                  AnchorPane.topAnchor="0.0"/>
+                        <Button id="b" fx:id="student" layoutY="31.0" mnemonicParsing="false"
+                                onAction="#handleButtonActionStudent" prefHeight="39.0" prefWidth="155.0"
+                                text="Students" AnchorPane.leftAnchor="17.0" AnchorPane.rightAnchor="11.0"/>
+                        <Button fx:id="fine" layoutY="85.0" mnemonicParsing="false" onAction="#handleButtonActionFine"
+                                prefHeight="39.0" prefWidth="155.0" text="Fines &amp; credit"
+                                AnchorPane.leftAnchor="17.0" AnchorPane.rightAnchor="11.0"/>
+                        <Button layoutX="17.0" layoutY="141.0" mnemonicParsing="false"
+                                onAction="#handleButtonActionDinningDataEntry" prefHeight="39.0" prefWidth="172.0"
+                                text="Data input"/>
+                    </children>
+                </AnchorPane>
+                <AnchorPane id="a" fx:id="acc" minHeight="0.0" minWidth="0.0" prefHeight="-1.0" prefWidth="-1.0"/>
+            </items>
+        </SplitPane>
+        <AnchorPane layoutY="0.0" prefHeight="22.0" prefWidth="1143.0" AnchorPane.leftAnchor="1.0"
+                    AnchorPane.rightAnchor="-1.0">
+            <children>
+                <MenuBar minHeight="22.0" prefHeight="22.0" prefWidth="1143.0" AnchorPane.bottomAnchor="0.0"
+                         AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <menus>
+                        <Menu mnemonicParsing="false" text="File">
+                            <items>
+                                <MenuItem mnemonicParsing="false" onAction="#handelMenuActionAddnew" text="Add new"/>
+                                <MenuItem mnemonicParsing="false" onAction="#addNewbatchMenuClicked"
+                                          text="Add New Batch" fx:id="addNewbatchMenu"/>
+                                <MenuItem mnemonicParsing="false" onAction="#addNewDeptMenuClicked"
+                                          text="Add New Department"/>
+                                <SeparatorMenuItem mnemonicParsing="false"/>
+                                <MenuItem mnemonicParsing="false" onAction="#handelMenuActionEdit" text="Edit"/>
+                                <SeparatorMenuItem mnemonicParsing="false"/>
+                                <MenuItem mnemonicParsing="false" text="Delete"/>
+                            </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="Settings">
+                            <items>
+                                <MenuItem mnemonicParsing="false" onAction="#fineCrediteSettingClicked"
+                                          text="Fine Credit Settings" fx:id="finecreditSettings"/>
+                                <SeparatorMenuItem mnemonicParsing="false"/>
+                                <MenuItem mnemonicParsing="false" text="Delete"/>
+                            </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="Help">
+                            <items>
+                                <MenuItem mnemonicParsing="false" text="About"/>
+                            </items>
+                        </Menu>
+                    </menus>
+                </MenuBar>
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>

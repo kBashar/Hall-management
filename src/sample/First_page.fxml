@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" prefWidth="780.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2"
+            fx:controller="sample.FirstPageController">
+    <children>
+        <AnchorPane id="a" minHeight="0.0" minWidth="0.0" prefHeight="651.0" prefWidth="934.999977929685"
+                    AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                    AnchorPane.topAnchor="0.0">
+            <children>
+                <Pane prefHeight="552.0" prefWidth="294.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="-1.0"
+                      AnchorPane.topAnchor="98.0">
+                    <children>
+                        <Separator layoutX="0.0" layoutY="1.0" maxHeight="1.7976931348623157E308"
+                                   maxWidth="1.7976931348623157E308" prefWidth="294.0">
+                            <effect>
+                                <BoxBlur>
+                                    <input>
+                                        <ColorAdjust brightness="-1.0" contrast="-0.7633587786259542"
+                                                     hue="0.5343511450381679" saturation="-0.916030534351145"/>
+                                    </input>
+                                </BoxBlur>
+                            </effect>
+                        </Separator>
+                        <Separator layoutX="0.0" layoutY="0.0" orientation="VERTICAL" prefHeight="523.0">
+                            <effect>
+                                <BoxBlur/>
+                            </effect>
+                        </Separator>
+                        <Label layoutX="2.0" layoutY="4.0" text="Description :">
+                            <font>
+                                <Font name="System Bold" size="20.0"/>
+                            </font>
+                        </Label>
+                        <VBox id="VBox" alignment="CENTER_LEFT" layoutX="14.0" layoutY="177.0" spacing="5.0">
+                            <children>
+                                <Label prefWidth="75.0" text="Name    ">
+                                    <font>
+                                        <Font size="15.0" fx:id="x1"/>
+                                    </font>
+                                </Label>
+                                <Label font="$x1" prefWidth="76.0" text="Id"/>
+                                <Label font="$x1" prefWidth="75.0" text="Batch        "/>
+                                <Label font="$x1" prefWidth="75.00009999999747" text="Dept.       "/>
+                                <Label font="$x1" prefWidth="76.0" text="Room No. "/>
+                            </children>
+                        </VBox>
+                        <ImageView fitHeight="110.64394602195895" fitWidth="96.71871948242188" layoutX="99.0"
+                                   layoutY="48.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@SAM_1614.jpg"/>
+                            </image>
+                        </ImageView>
+                        <VBox id="VBox" alignment="CENTER" layoutX="107.0" layoutY="178.0" prefWidth="177.0"
+                              spacing="5.0">
+                            <children>
+                                <TextField fx:id="nameLabel" editable="false" focusTraversable="false" opacity="1.0"
+                                           prefWidth="200.0"/>
+                            </children>
+                        </VBox>
+                        <Label layoutX="71.0" layoutY="308.0" text="Dinning Payment">
+                            <font>
+                                <Font size="20.0"/>
+                            </font>
+                        </Label>
+                        <VBox id="VBox" alignment="CENTER" layoutX="87.0" layoutY="178.0" prefWidth="12.0"
+                              spacing="5.0">
+                            <children>
+                                <Label font="$x1" prefWidth="20.0" text=":"/>
+                                <Label font="$x1" prefWidth="20.0" text=":"/>
+                                <Label font="$x1" prefWidth="20.0" text=":"/>
+                                <Label font="$x1" prefWidth="20.0" text=":"/>
+                                <Label font="$x1" prefWidth="20.0" text=":"/>
+                            </children>
+                        </VBox>
+                        <TextField fx:id="idLabel" editable="false" layoutX="107.0" layoutY="203.0" opacity="1.0"
+                                   prefWidth="177.0"/>
+                        <TextField fx:id="batchLabel" editable="false" layoutX="107.0" layoutY="227.0" opacity="1.0"
+                                   prefWidth="177.0"/>
+                        <TextField fx:id="deptLabel" editable="false" layoutX="107.0" layoutY="253.0" opacity="1.0"
+                                   prefWidth="177.0"/>
+                        <TextField fx:id="roomLabel" editable="false" layoutX="107.0" layoutY="278.0" opacity="1.0"
+                                   prefWidth="177.0"/>
+                        <Button fx:id="editButton" layoutX="243.0" layoutY="13.0" mnemonicParsing="false"
+                                onAction="#editButtonClicked" prefHeight="22.0" text="Edit"/>
+                    </children>
+                </Pane>
+                <Pane layoutX="0.0" layoutY="1.0" prefHeight="97.0" prefWidth="935.0">
+                    <children>
+                        <GridPane id="GridPane" hgap="5.0" layoutX="18.0" layoutY="28.0" vgap="5.0">
+                            <children>
+                                <TextField fx:id="batchField" maxHeight="1.7976931348623157E308"
+                                           maxWidth="1.7976931348623157E308" prefWidth="357.0" promptText="Batch"
+                                           GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+                                <TextField fx:id="deptField" prefWidth="357.0" promptText="Dept. id"
+                                           GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                                <Label font="$x1" text="Batch :" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                                <Label font="$x1" text="Depertment :" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                            </children>
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0"/>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0"/>
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints minHeight="10.0" vgrow="SOMETIMES"/>
+                                <RowConstraints minHeight="10.0" vgrow="SOMETIMES"/>
+                            </rowConstraints>
+                        </GridPane>
+                        <GridPane id="GridPane" hgap="5.0" layoutX="482.0" layoutY="29.0" vgap="5.0">
+                            <children>
+                                <TextField fx:id="roomField" prefWidth="146.0" promptText="Room"
+                                           GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+                                <TextField fx:id="studentField" prefWidth="146.0" promptText="ID"
+                                           GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                                <Label font="$x1" text="Room No :" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                                <Label font="$x1" text="Student ID :" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                            </children>
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0"/>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0"/>
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints minHeight="10.0" vgrow="SOMETIMES"/>
+                                <RowConstraints minHeight="10.0" vgrow="SOMETIMES"/>
+                            </rowConstraints>
+                        </GridPane>
+                        <Button fx:id="findButton" layoutX="719.0" layoutY="39.0" mnemonicParsing="false"
+                                onAction="#findClicked" prefHeight="26.601662499997474" text="Find"/>
+                    </children>
+                </Pane>
+            </children>
+        </AnchorPane>
+        <HBox id="HBox" alignment="CENTER" prefHeight="552.0" prefWidth="641.0" spacing="5.0"
+              AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="294.0"
+              AnchorPane.topAnchor="98.0">
+            <children>
+                <TableView id="anchor" fx:id="tabelView" minHeight="100.0" prefHeight="652.0" prefWidth="632.0"
+                           HBox.hgrow="ALWAYS">
+                    <columns>
+                        <TableColumn editable="false" prefWidth="75.0" text="Room" fx:id="roomColumn"/>
+                        <TableColumn editable="false" prefWidth="75.0" text="Student ID" fx:id="idColumn"/>
+                        <TableColumn editable="false" maxWidth="5000.0" minWidth="10.0" prefWidth="148.0" text="Name"
+                                     fx:id="nameColumn"/>
+                        <TableColumn editable="false" maxWidth="5000.0" minWidth="10.0" prefWidth="148.0" text="Contact"
+                                     fx:id="contactColumn"/>
+                        <TableColumn editable="false" maxWidth="5000.0" minWidth="10.0" prefWidth="114.0" text="Fine"
+                                     fx:id="fineColumn"/>
+                        <TableColumn editable="false" maxWidth="5000.0" minWidth="10.0" prefWidth="107.0" text="Credit"
+                                     fx:id="creditColumn"/>
+                    </columns>
+                </TableView>
+            </children>
+        </HBox>
+    </children>
+</AnchorPane>

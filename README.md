@@ -11,9 +11,9 @@ Code structure is ready. and final polishing is going on. About 80% of whole pro
 Dependencies
 ===============
 
-*[Hsqldb] (www.hsqldb.org) version 2.3.2
+* [Hsqldb] (www.hsqldb.org) version 2.3.2
     for database
-*[POI from apache] (http://poi.apache.org/) version 3.10
+* [POI from apache] (http://poi.apache.org/) version 3.10
     for reading microsoft execel file
-*[iText] (itextpdf.com) version 5.5.1
+* [iText] (itextpdf.com) version 5.5.1
     for producing PDF file

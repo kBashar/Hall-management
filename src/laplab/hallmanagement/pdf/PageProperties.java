@@ -22,23 +22,23 @@ public class PageProperties extends PdfPageEventHelper {
         Rectangle rect = writer.getBoxSize("art");
         System.out.println("Width " + rect.getWidth() +
                 "\nheight " + rect.getHeight() +
-                "\nleft "+ rect.getLeft()+
-                "\nright "+ rect.getRight()+
-                "\nbottom"+ rect.getBottom()
+                "\nleft " + rect.getLeft() +
+                "\nright " + rect.getRight() +
+                "\nbottom" + rect.getBottom()
         );
-        Phrase pageNumberPhrase=new Phrase(String.format("page %d", pagenumber));
-        pageNumberPhrase.setFont(new Font(Font.FontFamily.HELVETICA,6,Font.BOLDITALIC));
+        Phrase pageNumberPhrase = new Phrase(String.format("page %d", pagenumber));
+        pageNumberPhrase.setFont(new Font(Font.FontFamily.HELVETICA, 6, Font.BOLDITALIC));
         ColumnText.showTextAligned(writer.getDirectContent(),
                 Element.ALIGN_CENTER, pageNumberPhrase,
-                rect.getRight()-65, rect.getBottom()-25, 0);
+                rect.getRight() - 65, rect.getBottom() - 25, 0);
         drawLine(writer.getDirectContent(),
                 pdfDocument.left(), pdfDocument.right(),
                 rect.getBottom() - 30);
-        Phrase developerCourtesy=new Phrase("Automated Document produced with Hall Management Application, Developed By METROBITS");
-        pageNumberPhrase.setFont(new Font(Font.FontFamily.HELVETICA,3,Font.ITALIC));
+        Phrase developerCourtesy = new Phrase("Automated Document produced with Hall Management Application, Developed By METROBITS");
+        pageNumberPhrase.setFont(new Font(Font.FontFamily.HELVETICA, 3, Font.ITALIC));
         ColumnText.showTextAligned(writer.getDirectContent(),
                 Element.ALIGN_JUSTIFIED_ALL, developerCourtesy,
-                pdfDocument.left(), rect.getBottom()-42, 0);
+                pdfDocument.left(), rect.getBottom() - 42, 0);
     }
 
     public void drawLine(PdfContentByte cb,

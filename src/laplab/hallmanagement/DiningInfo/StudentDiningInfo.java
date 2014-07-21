@@ -34,8 +34,8 @@ public class StudentDiningInfo {
         return studentID;
     }
 
-    public void setRoom(int room)    {
-        this.room=room;
+    public void setRoom(int room) {
+        this.room = room;
     }
 
     public void addMonthlyInfo(MonthlyInfo monthlyInfo) {
@@ -70,7 +70,7 @@ public class StudentDiningInfo {
         return totalCredit;
     }
 
-    public int getRoom()    {
+    public int getRoom() {
         return room;
     }
 

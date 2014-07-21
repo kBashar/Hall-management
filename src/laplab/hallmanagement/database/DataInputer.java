@@ -50,9 +50,9 @@ public class DataInputer {
             map.put(BatchTable.BATCH_ID_COLUMN, batch_ID);
             map.put(BatchTable.BATCH_NAME_COLUMN, batch_name);
             map.put(BatchTable.DEPRECATED_BATCH_COLUMN, false);
-            map .put(BatchTable.FINE_FOR_BATCH,200);
-            map.put(BatchTable.MIN_DAY_FOR_CREDIT,5);
-            map.put(BatchTable.MAX_DAY_FOR_CREDIT,10);
+            map.put(BatchTable.FINE_FOR_BATCH, 200);
+            map.put(BatchTable.MIN_DAY_FOR_CREDIT, 5);
+            map.put(BatchTable.MAX_DAY_FOR_CREDIT, 10);
 
         }
         return map;
@@ -69,22 +69,22 @@ public class DataInputer {
         return map;
     }
 
-    public static HashMap DinningInfoInsert(String id, String voucher, String amount,int MonthID) {
+    public static HashMap DinningInfoInsert(String id, String voucher, String amount, int MonthID) {
         HashMap map = new HashMap();
-        map.put(DiningTable.DINING_STUDENT_ID,id);
-        map.put(DiningTable.VOUCHER_ID,voucher);
-        map.put(DiningTable.AMOUNT,amount);
-        map.put(DiningTable.MONTH_ID,MonthID);
+        map.put(DiningTable.DINING_STUDENT_ID, id);
+        map.put(DiningTable.VOUCHER_ID, voucher);
+        map.put(DiningTable.AMOUNT, amount);
+        map.put(DiningTable.MONTH_ID, MonthID);
         return map;
     }
 
     public static HashMap FineInfoInsert(String year, int month, String batch, int dept) {
         HashMap map = new HashMap();
 
-            map.put(FineTable.MONTH_ID, Month.getMonthID(Integer.parseInt(year),month));
-            map.put(FineTable.BATCH,batch);
-            map.put(FineTable.DEPARTMENT,dept);
-            map.put(FineTable.IS_FREE,1);
+        map.put(FineTable.MONTH_ID, Month.getMonthID(Integer.parseInt(year), month));
+        map.put(FineTable.BATCH, batch);
+        map.put(FineTable.DEPARTMENT, dept);
+        map.put(FineTable.IS_FREE, 1);
 
         return map;
     }

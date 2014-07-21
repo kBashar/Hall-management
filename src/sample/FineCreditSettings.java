@@ -84,18 +84,18 @@ public class FineCreditSettings implements Initializable {
                 System.out.println("Please fill ALL field");
                 return;
             }
-            HashMap map = DataInputer.FineInfoInsert(year,Month.getMonthIndex(month),batch, StudentInfo.getDepartmentID(dept));
-            int check =  new DataBaseHelper(new DataBaseConnection().getConnection()).insertIntoDataBase(
+            HashMap map = DataInputer.FineInfoInsert(year, Month.getMonthIndex(month), batch, StudentInfo.getDepartmentID(dept));
+            int check = new DataBaseHelper(new DataBaseConnection().getConnection()).insertIntoDataBase(
                     DataBaseConstant.FINE_TABLE_NAME,
                     map);
-            if (check>0)    {
+            if (check > 0) {
                 System.out.println("Fine info updated");
             }
-            } else {
-                System.out.println("please Specify everything");
-                return;
-            }
+        } else {
+            System.out.println("please Specify everything");
+            return;
         }
+    }
 
     public void fineRuleUpdate(ActionEvent actionEvent) {
         String batch = (String) frBatch.getValue();

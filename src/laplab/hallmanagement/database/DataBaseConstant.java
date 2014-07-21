@@ -13,8 +13,7 @@ public class DataBaseConstant {
     public static final String BATCH_TABLE_NAME = "BATCH";
     public static final String DEPARTMENT_TABLE_NAME = "DEPARTMENT";
     public static final String FINE_TABLE_NAME = "FINE_CREDIT";
-    public static final String MONTH_TABLE="MONTH";
-
+    public static final String MONTH_TABLE = "MONTH";
 
 
     public static String getDingingTableNameForYear(int year) {

@@ -14,11 +14,11 @@ import java.sql.Statement;
  * To change this template use File | Settings | File Templates.
  */
 public class MonthTable {
-    public static String TABLE_NAME=DataBaseConstant.MONTH_TABLE;
+    public static String TABLE_NAME = DataBaseConstant.MONTH_TABLE;
 
-    public static String MONTH_ID="ID";
-    public static String MONTH="month";
-    public static String YEAR="year";
+    public static String MONTH_ID = "ID";
+    public static String MONTH = "month";
+    public static String YEAR = "year";
 
 
     private Connection connection = null;

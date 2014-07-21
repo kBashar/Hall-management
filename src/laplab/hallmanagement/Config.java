@@ -12,11 +12,11 @@ import java.util.prefs.Preferences;
 public class Config {
     private Preferences preferences;
 
-    public void checkEveryThing()   {
+    public void checkEveryThing() {
 
     }
 
-    public void setPreferences()    {
+    public void setPreferences() {
 
     }
 }

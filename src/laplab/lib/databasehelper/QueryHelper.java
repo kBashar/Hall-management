@@ -162,7 +162,7 @@ public class QueryHelper {
     public ResultSet qurreyInDataBase(String queryString) {
         ResultSet resultSet = null;
         try {
-            Statement statement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_UPDATABLE);
+            Statement statement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
             resultSet = statement.executeQuery(queryString);
 
         } catch (SQLException e) {

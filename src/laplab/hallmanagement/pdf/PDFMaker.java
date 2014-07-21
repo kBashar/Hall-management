@@ -1,9 +1,6 @@
 package laplab.hallmanagement.pdf;
 
-import com.itextpdf.text.Document;
-import com.itextpdf.text.DocumentException;
-import com.itextpdf.text.PageSize;
-import com.itextpdf.text.Phrase;
+import com.itextpdf.text.*;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
@@ -37,10 +34,16 @@ public class PDFMaker {
             Document document = new Document(PageSize.A4);
 
             try {
-                ByteArrayOutputStream outputStream=
+                ByteArrayOutputStream outputStream =
                         new ByteArrayOutputStream();
-                PdfWriter pdfWriter=PdfWriter.getInstance(document,outputStream);
+                PdfWriter pdfWriter = PdfWriter.getInstance(document, outputStream);
+                pdfWriter.setBoxSize("art", new Rectangle(36, 54, 595, 788));
+                pdfWriter.setPageEvent(new PageProperties());
                 PdfPTable table = new PdfPTable(3);
+                table.setWidthPercentage(70);
+                table.setHeaderRows(1);
+                table.setSplitLate(false);
+                table.setSplitRows(false);
                 table.addCell("Room");
                 table.addCell("ID");
                 table.addCell("Taka");
@@ -55,7 +58,7 @@ public class PDFMaker {
                 document.open();
                 document.add(table);
                 document.close();
-                FileOutputStream fileOutputStream=new FileOutputStream(getSaveFile());
+                FileOutputStream fileOutputStream = new FileOutputStream(getSaveFile());
                 fileOutputStream.write(outputStream.toByteArray());
                 fileOutputStream.close();
             } catch (DocumentException e) {
@@ -70,10 +73,10 @@ public class PDFMaker {
     }
 
     private void addSameRoomStudents(int currentRoom, ArrayList<PdfPCell> cells, PdfPTable table) {
-        PdfPCell roomCell=new PdfPCell(new Phrase(String.valueOf(currentRoom)));
-        roomCell.setRowspan(cells.size()/2);
+        PdfPCell roomCell = new PdfPCell(new Phrase(String.valueOf(currentRoom)));
+        roomCell.setRowspan(cells.size() / 2);
         table.addCell(roomCell);
-        for (PdfPCell cell:cells)   {
+        for (PdfPCell cell : cells) {
             table.addCell(cell);
         }
     }
@@ -85,12 +88,12 @@ public class PDFMaker {
             if (currentRoom == studentDiningInfo.getRoom()) {
                 cells.add(new PdfPCell(new Phrase(String.valueOf(studentDiningInfo.getStudentID()))));
                 cells.add(new PdfPCell(new Phrase(String.valueOf(studentDiningInfo.getTotalFine()))));
-            }  else {
-                addSameRoomStudents(currentRoom,cells,table);
+            } else {
+                addSameRoomStudents(currentRoom, cells, table);
                 cells.clear();
                 cells.add(new PdfPCell(new Phrase(String.valueOf(studentDiningInfo.getStudentID()))));
                 cells.add(new PdfPCell(new Phrase(String.valueOf(studentDiningInfo.getTotalFine()))));
-                currentRoom=studentDiningInfo.getRoom();
+                currentRoom = studentDiningInfo.getRoom();
             }
         }
     }
@@ -102,12 +105,12 @@ public class PDFMaker {
             if (currentRoom == studentDiningInfo.getRoom()) {
                 cells.add(new PdfPCell(new Phrase(String.valueOf(studentDiningInfo.getStudentID()))));
                 cells.add(new PdfPCell(new Phrase(String.valueOf(studentDiningInfo.getTotalCredit()))));
-            }  else {
-                addSameRoomStudents(currentRoom,cells,table);
+            } else {
+                addSameRoomStudents(currentRoom, cells, table);
                 cells.clear();
                 cells.add(new PdfPCell(new Phrase(String.valueOf(studentDiningInfo.getStudentID()))));
                 cells.add(new PdfPCell(new Phrase(String.valueOf(studentDiningInfo.getTotalCredit()))));
-                currentRoom=studentDiningInfo.getRoom();
+                currentRoom = studentDiningInfo.getRoom();
             }
         }
     }
@@ -119,22 +122,22 @@ public class PDFMaker {
             if (currentRoom == studentDiningInfo.getRoom()) {
                 cells.add(new PdfPCell(new Phrase(String.valueOf(studentDiningInfo.getStudentID()))));
                 cells.add(new PdfPCell(new Phrase(String.valueOf(studentDiningInfo.getTotalAmount()))));
-            }  else {
-                addSameRoomStudents(currentRoom,cells,table);
+            } else {
+                addSameRoomStudents(currentRoom, cells, table);
                 cells.clear();
                 cells.add(new PdfPCell(new Phrase(String.valueOf(studentDiningInfo.getStudentID()))));
                 cells.add(new PdfPCell(new Phrase(String.valueOf(studentDiningInfo.getTotalAmount()))));
-                currentRoom=studentDiningInfo.getRoom();
+                currentRoom = studentDiningInfo.getRoom();
             }
         }
     }
 
-    private File getSaveFile()    {
-        FileChooser fileChooser=new FileChooser();
+    private File getSaveFile() {
+        FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Save Query in pdf format");
         fileChooser.setInitialDirectory(new File(System.getProperty("user.home")));
-        File file=fileChooser.showSaveDialog(new Stage());
-        if (file!=null) {
+        File file = fileChooser.showSaveDialog(new Stage());
+        if (file != null) {
             return file;
         } else {
             return new File("try.pdf");

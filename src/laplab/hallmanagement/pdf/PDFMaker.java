@@ -39,13 +39,14 @@ public class PDFMaker {
                 PdfWriter pdfWriter = PdfWriter.getInstance(document, outputStream);
                 pdfWriter.setBoxSize("art", new Rectangle(36, 54, 595, 788));
                 pdfWriter.setPageEvent(new PageProperties());
-                PdfPTable table = new PdfPTable(3);
+                PdfPTable table = new PdfPTable(4);
                 table.setWidthPercentage(70);
                 table.setHeaderRows(1);
                 table.setSplitLate(false);
                 table.setSplitRows(false);
                 table.addCell("Room");
                 table.addCell("ID");
+                table.addCell("Name");
                 table.addCell("Taka");
 
                 if (whatToAdd.equals(Fine_creditController.FINE)) {

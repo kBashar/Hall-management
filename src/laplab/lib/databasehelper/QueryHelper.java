@@ -38,7 +38,7 @@ public class QueryHelper {
         addStatementTableName(table);
         //String queryString=stringBuilder.toString();
         //System.out.println(queryString);
-        return qurreyInDataBase(stringBuilder.toString());
+        return queryInDataBase(stringBuilder.toString());
     }
 
     public ResultSet query(String table, String selection) {
@@ -53,7 +53,7 @@ public class QueryHelper {
         stringBuilder.append(selection);
         //String queryString=stringBuilder.toString();
         System.out.println(stringBuilder.toString());
-        return qurreyInDataBase(stringBuilder.toString());
+        return queryInDataBase(stringBuilder.toString());
     }
 
     public ResultSet query(String table, String[] columns) {
@@ -65,7 +65,7 @@ public class QueryHelper {
         addStatementTableName(table);
         //String queryString=stringBuilder.toString();
         //System.out.println(queryString);
-        return qurreyInDataBase(stringBuilder.toString());
+        return queryInDataBase(stringBuilder.toString());
     }
 
     public ResultSet query(String table, String[] columns, String[] selection, String[] selectionArgs) {
@@ -78,7 +78,7 @@ public class QueryHelper {
         addSelections(selection, selectionArgs);
         //String queryString=stringBuilder.toString();
         //System.out.println(queryString);
-        return qurreyInDataBase(stringBuilder.toString());
+        return queryInDataBase(stringBuilder.toString());
     }
 
     public ResultSet query(String table, String[] columns, String[] selection, String[] selectionArgs, String groupBy, String having, String orderBy, String limit) {
@@ -159,7 +159,7 @@ public class QueryHelper {
         }
     }
 
-    public ResultSet qurreyInDataBase(String queryString) {
+    public ResultSet queryInDataBase(String queryString) {
         ResultSet resultSet = null;
         try {
             Statement statement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);

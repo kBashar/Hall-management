@@ -14,6 +14,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
+import laplab.hallmanagement.Credit.CreditUpdater;
 import laplab.hallmanagement.Month;
 import laplab.hallmanagement.database.DataBaseConnection;
 import laplab.hallmanagement.database.DataBaseConstant;
@@ -32,6 +33,10 @@ public class Data_inputController implements Initializable {
     public TextField dinningBillVoucher;
     public TextField dinningBillAmount;
     public TextField dinningBillYear;
+    public TextField creditStudentID;
+    public TextField creditDay;
+    public TextField creditYear;
+    public ComboBox creditMonth;
 
     /**
      * Initializes the controller class.
@@ -42,6 +47,9 @@ public class Data_inputController implements Initializable {
         dinningBillMonth.setItems(monthList);
         dinningBillMonth.setValue(monthList.get(Month.getCurrentMonth()));
         dinningBillYear.setText(String.valueOf(Month.getCurrentYear()));
+        creditMonth.setItems(monthList);
+        creditMonth.setValue(monthList.get(Month.getCurrentMonth()));
+        creditYear.setText(String.valueOf(Month.getCurrentYear()));
 
     }
 
@@ -76,7 +84,7 @@ public class Data_inputController implements Initializable {
                                 voucherList[i],
                                 amountList[i],
                                 Month.getMonthID(Integer.parseInt(year),
-                                Month.getMonthIndex(month)));
+                                        Month.getMonthIndex(month)));
                         int check = helper.insertIntoDataBase(DataBaseConstant.DINING_INFO_TABLE_NAME, map);
                         if (check > 0) {
                             System.out.println("Dining info input done");
@@ -96,4 +104,26 @@ public class Data_inputController implements Initializable {
 
         }
     }
+
+    public void creditInputButtonClicked() {
+        String studentId = creditStudentID.getText();
+        String creditday = creditDay.getText();
+        String year= creditYear.getText();
+        String month=(String) creditMonth.getValue();
+
+        if (studentId!=null && creditday!=null && year!=null && month!=null)    {
+            int check = CreditUpdater.updateCreditDayCount(studentId,
+                    String.valueOf(Month.getMonthID(Integer.parseInt(year),Month.getMonthIndex(month))),
+                    Integer.parseInt(creditday));
+            if (check>0)    {
+                System.out.println("Updated");
+            } else if (check==-2){
+                System.out.println("this Student yet didn't pay for Dining");
+            }  else {
+                System.out.println("Somthing is wrong");
+            }
+
+        }
+    }
+
 }

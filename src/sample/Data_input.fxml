@@ -72,7 +72,21 @@
     </Label>
     <ComboBox fx:id="dinningBillMonth" layoutX="639.0" layoutY="271.0" prefHeight="21.0" prefWidth="123.0" />
     <Button fx:id="inputButton" layoutX="479.0" layoutY="321.0" mnemonicParsing="false" onAction="#inputButtonClicked" prefWidth="123.0" text="Input" />
-    <Label font="$x2" layoutX="195.0" layoutY="275.0" prefHeight="26.0" prefWidth="80.0" text="Year" />
-    <TextField fx:id="dinningBillYear" layoutX="289.0" layoutY="277.0" prefWidth="114.0" />
+    <Label font="$x2" layoutX="195.0" layoutY="270.0" prefHeight="26.0" prefWidth="80.0" text="Year" />
+    <TextField fx:id="dinningBillYear" layoutX="289.0" layoutY="271.0" prefWidth="114.0" />
+    <Label font="$x2" layoutX="502.0" layoutY="499.0" prefHeight="26.0" prefWidth="80.0" text="Month" />
+    <ComboBox id="dinningBillMonth" fx:id="creditMonth" layoutX="585.0" layoutY="503.0" prefHeight="21.0" prefWidth="123.0" />
+    <Label font="$x2" layoutX="272.0" layoutY="501.0" prefHeight="26.0" prefWidth="80.0" text="Year" />
+    <TextField id="dinningBillYear" fx:id="creditYear" layoutX="357.0" layoutY="503.0" prefWidth="114.0" />
+    <Label layoutX="263.0" layoutY="426.0" prefWidth="71.0" text="Student ID" />
+    <TextField fx:id="creditStudentID" layoutX="353.0" layoutY="422.0" prefWidth="200.0" />
+    <Label layoutX="263.0" layoutY="471.0" prefWidth="61.0" text="Credit Day" />
+    <TextField fx:id="creditDay" layoutX="353.0" layoutY="465.0" prefWidth="200.0" />
+    <Label layoutX="370.0" layoutY="377.0" prefWidth="101.0" text="CREDIT DAY">
+      <font>
+        <Font name="System Bold" size="15.0" />
+      </font>
+    </Label>
+    <Button id="inputButton" fx:id="creditInputButton" layoutX="639.0" layoutY="535.0" mnemonicParsing="false" onAction="#creditInputButtonClicked" prefWidth="123.0" text="Update" />
   </children>
 </AnchorPane>

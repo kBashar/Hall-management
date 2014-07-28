@@ -103,8 +103,7 @@ public class Controller implements Initializable {
 
         }
 
-        DataBaseConnection dataBaseConnection = new DataBaseConnection();
-        QueryHelper queryHelper = new QueryHelper(dataBaseConnection.getConnection());
+        QueryHelper queryHelper = new QueryHelper(DataBaseConnection.getConnection());
 
         studentInfoObservableList = new GetDataFromDatabase().printData(queryHelper.query(DataBaseConstant.STUDENT_INFO_TABLE_NAME, stringBuilder.toString()));
         tableView.setItems(studentInfoObservableList);
@@ -145,6 +144,4 @@ public class Controller implements Initializable {
         stringBuilder.append(CommonCharacters.SPACE);
         return stringBuilder.toString();
     }
-
-
 }

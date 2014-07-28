@@ -79,7 +79,7 @@ public class StudentDataEntryController implements Initializable {
         if (studentInfo.finalizeObject()) {
 
 
-            int check = new DataBaseHelper(new DataBaseConnection().getConnection()).insertIntoDataBase(
+            int check = new DataBaseHelper(DataBaseConnection.getConnection()).insertIntoDataBase(
                     DataBaseConstant.STUDENT_INFO_TABLE_NAME,
                     DataInputer.StudentInsert(studentInfo)
             );

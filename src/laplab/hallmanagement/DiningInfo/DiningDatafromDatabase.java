@@ -9,6 +9,7 @@ import laplab.lib.tablecreator.CommonCharacters;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.logging.Logger;
 
 /**
  * Created with IntelliJ IDEA.
@@ -18,6 +19,7 @@ import java.sql.SQLException;
  * To change this template use File | Settings | File Templates.
  */
 public class DiningDatafromDatabase {
+    private static final Logger log= Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
     private static String mainQueryString = "select studentinfo.id as Student_ID,studentinfo.ROOM as Room," +
             "dining.amount,dining.credit_day,month.month,month.year,batch.fine" +
             ",FINE_CREDIT.ISFREE from studentInfo,batch\n" +
@@ -101,15 +103,17 @@ public class DiningDatafromDatabase {
             stringBuilder1.append(CommonCharacters.SPACE);
             stringBuilder1.append(st);
 
-            System.out.println(stringBuilder1.toString());
             queryString = stringBuilder1.toString();
+            System.out.println(queryString);
+            log.warning(queryString);
         } else {
 
             System.out.println(mainQueryString);
+            log.warning(mainQueryString);
             queryString = mainQueryString;
         }
         return getStudentsDiningInfoList(
-                new QueryHelper(new DataBaseConnection().getConnection()
+                new QueryHelper(DataBaseConnection.getConnection()
                 ).queryInDataBase(queryString),
                 Month.countMonth(startYear, startMonth, endYear, endMonth));
     }

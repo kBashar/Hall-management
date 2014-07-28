@@ -25,8 +25,7 @@ public class GetDataFromDatabase {
     }
 
     public ObservableList<StudentInfo> printData() {
-        DataBaseConnection dataBaseConnection = new DataBaseConnection();
-        QueryHelper queryHelper = new QueryHelper(dataBaseConnection.getConnection());
+        QueryHelper queryHelper = new QueryHelper(DataBaseConnection.getConnection());
 
         ResultSet resultSet = queryHelper.query(DataBaseConstant.STUDENT_INFO_TABLE_NAME);
         ObservableList<StudentInfo> studentInfoObservableList = FXCollections.observableArrayList();

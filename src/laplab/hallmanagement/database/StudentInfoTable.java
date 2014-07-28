@@ -1,9 +1,6 @@
 package laplab.hallmanagement.database;
 
-import laplab.lib.tablecreator.Column;
-import laplab.lib.tablecreator.ColumnList;
-import laplab.lib.tablecreator.PrimaryKey;
-import laplab.lib.tablecreator.TableStatementCreator;
+import laplab.lib.tablecreator.*;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -11,7 +8,7 @@ import java.sql.Statement;
 
 /**
  * Created with IntelliJ IDEA.
- * User: ahmed
+ * User: kBashar
  * Date: 2/26/14
  * Time: 2:50 PM
  * To change this template use File | Settings | File Templates.
@@ -52,6 +49,21 @@ public class StudentInfoTable {
         return columns;
     }
 
+    private ForeignKeyList createForeignKey() {
+        ForeignKeyList foreignKeyList = new ForeignKeyList();
+        foreignKeyList.add(new ForeignKey(
+                StudentInfoTable.DEPARTMENT_COLUMN,
+                DataBaseConstant.DEPARTMENT_TABLE_NAME,
+                DepartmentTable.DEPARTMENT_ID_COLUMN
+        ));
+        foreignKeyList.add(new ForeignKey(
+                StudentInfoTable.BATCH_COLUMN,
+                DataBaseConstant.BATCH_TABLE_NAME,
+                BatchTable.BATCH_ID_COLUMN
+        ));
+        return foreignKeyList;
+    }
+
     private PrimaryKey createPrimaryKey() {
         return new PrimaryKey(StudentInfoTable.ID_COLUMN);
     }
@@ -59,7 +71,8 @@ public class StudentInfoTable {
     public int create() {
         String statementQuery = new TableStatementCreator(StudentInfoTable.TABLE_NAME,
                 createColumns(),
-                createPrimaryKey()).getStatement();
+                createPrimaryKey(),
+                createForeignKey()).getStatement();
 
 
         try {

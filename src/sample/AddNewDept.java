@@ -22,7 +22,7 @@ public class AddNewDept {
         String newDptName = deptName.getText();
         String newDptID = deptID.getText();
         if (!newDptName.isEmpty() && !newDptID.isEmpty()) {
-            int check = new DataBaseHelper(new DataBaseConnection().getConnection()).insertIntoDataBase(
+            int check = new DataBaseHelper(DataBaseConnection.getConnection()).insertIntoDataBase(
                     DataBaseConstant.DEPARTMENT_TABLE_NAME,
                     DataInputer.DepartmentInsert(newDptID, newDptName)
             );

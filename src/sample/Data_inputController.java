@@ -24,7 +24,7 @@ import laplab.lib.databasehelper.DataBaseHelper;
 /**
  * FXML Controller class
  *
- * @author AURANGO SABBIR
+ * @author Khyrul Bashar
  */
 public class Data_inputController implements Initializable {
 
@@ -76,7 +76,7 @@ public class Data_inputController implements Initializable {
                         amountList = new String[studentIdList.length];
                         Arrays.fill(amountList, amount);
                     }
-                    DataBaseHelper helper = new DataBaseHelper(new DataBaseConnection().getConnection());
+                    DataBaseHelper helper = new DataBaseHelper(DataBaseConnection.getConnection());
                     HashMap map;
                     for (int i = 0; i < studentIdList.length; i++) {
                         map = DataInputer.DinningInfoInsert(

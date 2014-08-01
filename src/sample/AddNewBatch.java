@@ -25,7 +25,7 @@ public class AddNewBatch {
         String batchName = newBatchName.getText();
         String batchID = newBatchID.getText();
         if (!batchName.isEmpty() && !batchID.isEmpty()) {
-            int check = new DataBaseHelper(new DataBaseConnection().getConnection()).insertIntoDataBase(
+            int check = new DataBaseHelper(DataBaseConnection.getConnection()).insertIntoDataBase(
                     DataBaseConstant.BATCH_TABLE_NAME,
                     DataInputer.BatchInsert(batchID, batchName)
             );

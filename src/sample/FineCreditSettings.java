@@ -85,7 +85,7 @@ public class FineCreditSettings implements Initializable {
                 return;
             }
             HashMap map = DataInputer.FineInfoInsert(year, Month.getMonthIndex(month), batch, StudentInfo.getDepartmentID(dept));
-            int check = new DataBaseHelper(new DataBaseConnection().getConnection()).insertIntoDataBase(
+            int check = new DataBaseHelper(DataBaseConnection.getConnection()).insertIntoDataBase(
                     DataBaseConstant.FINE_TABLE_NAME,
                     map);
             if (check > 0) {
@@ -114,7 +114,7 @@ public class FineCreditSettings implements Initializable {
 
             if (frCheckbox.isSelected()) {
                 String tryStr = "where " + BatchTable.BATCH_ID_COLUMN + " >=" + " " + batch;
-                int check = new DataBaseHelper(new DataBaseConnection().getConnection()).UpdateDataBase(
+                int check = new DataBaseHelper(DataBaseConnection.getConnection()).UpdateDataBase(
                         DataBaseConstant.BATCH_TABLE_NAME,
                         updatecolumns,
                         tryStr
@@ -126,7 +126,7 @@ public class FineCreditSettings implements Initializable {
                 HashMap selectionargs = new HashMap();
                 selectionargs.put(BatchTable.BATCH_NAME_COLUMN, batch);
 
-                int check = new DataBaseHelper(new DataBaseConnection().getConnection()).UpdateDataBase(
+                int check = new DataBaseHelper(DataBaseConnection.getConnection()).UpdateDataBase(
                         DataBaseConstant.BATCH_TABLE_NAME,
                         updatecolumns,
                         selectionargs
@@ -162,7 +162,7 @@ public class FineCreditSettings implements Initializable {
             updatecolumns.put(BatchTable.MAX_DAY_FOR_CREDIT, maxDay);
             if (crCheckbox.isSelected()) {
                 String tryStr = "where " + BatchTable.BATCH_ID_COLUMN + " >=" + " " + batch;
-                int check = new DataBaseHelper(new DataBaseConnection().getConnection()).UpdateDataBase(
+                int check = new DataBaseHelper(DataBaseConnection.getConnection()).UpdateDataBase(
                         DataBaseConstant.BATCH_TABLE_NAME,
                         updatecolumns,
                         tryStr
@@ -173,7 +173,7 @@ public class FineCreditSettings implements Initializable {
             } else {
                 HashMap tryStr = new HashMap();
                 tryStr.put(BatchTable.BATCH_NAME_COLUMN, batch);
-                int check = new DataBaseHelper(new DataBaseConnection().getConnection()).UpdateDataBase(
+                int check = new DataBaseHelper(DataBaseConnection.getConnection()).UpdateDataBase(
                         DataBaseConstant.BATCH_TABLE_NAME,
                         updatecolumns,
                         tryStr

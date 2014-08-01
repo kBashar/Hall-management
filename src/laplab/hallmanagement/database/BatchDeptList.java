@@ -9,7 +9,7 @@ import java.sql.SQLException;
 
 /**
  * Created with IntelliJ IDEA.
- * User: ahmed
+ * User: kBashar
  * Date: 7/3/14
  * Time: 2:52 PM
  * To change this template use File | Settings | File Templates.
@@ -18,7 +18,7 @@ public class BatchDeptList {
 
     public static ObservableList<String> getBatches() {
         ObservableList<String> list = FXCollections.observableArrayList();
-        ResultSet resultSet = new QueryHelper(new DataBaseConnection().getConnection())
+        ResultSet resultSet = new QueryHelper(DataBaseConnection.getConnection())
                 .query(DataBaseConstant.BATCH_TABLE_NAME);
         try {
             while (resultSet.next()) {
@@ -34,7 +34,7 @@ public class BatchDeptList {
 
     public static ObservableList<String> getDepts() {
         ObservableList<String> list = FXCollections.observableArrayList();
-        ResultSet resultSet = new QueryHelper(new DataBaseConnection().getConnection())
+        ResultSet resultSet = new QueryHelper(DataBaseConnection.getConnection())
                 .query(DataBaseConstant.DEPARTMENT_TABLE_NAME);
         try {
             while (resultSet.next()) {

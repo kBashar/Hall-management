@@ -9,7 +9,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 /**
- * Created by jubayer on 2/24/14.
+ * Created by kBashar on 2/24/14.
  */
 public class DataBaseConnection {
 
@@ -33,24 +33,39 @@ public class DataBaseConnection {
             System.out.println("Database not Created");
             return;
         }
+        try {
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+        }
 
+    }
 
+    public static Connection getConnection() {
+        try {
+            // connection = DriverManager.getConnection("jdbc:hsqldb:file:database/Hall");
+            return DriverManager.getConnection("jdbc:hsqldb:file:database/Hall");
+        } catch (SQLException e) {
+            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+        }
+        ;
+        return null;
+    }
+
+    public boolean checkForDatabase() {
+        try {
+            connection = DriverManager.getConnection("jdbc:hsqldb:file:database/Hall");
+        } catch (SQLException e) {
+            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            return false;
+        }
         DataBaseMetaData metaData = new DataBaseMetaData(connection);
 
-        System.out.println(metaData.isThisTableExists(MonthTable.TABLE_NAME));
         if (metaData.isThisTableExists(MonthTable.TABLE_NAME)) {
             System.out.println(MonthTable.TABLE_NAME + " EXISTS");
         } else {
             if (new MonthTable(connection).create() > -1) {
                 System.out.println("Month Table Created");
-            }
-        }
-
-        if (metaData.isThisTableExists(DataBaseConstant.STUDENT_INFO_TABLE_NAME)) {
-            System.out.println(DataBaseConstant.STUDENT_INFO_TABLE_NAME + " EXISTS");
-        } else {
-            if (new StudentInfoTable(connection).create() > -1) {
-                System.out.println("Student info Table Created");
             }
         }
         if (metaData.isThisTableExists(DataBaseConstant.BATCH_TABLE_NAME)) {
@@ -67,6 +82,13 @@ public class DataBaseConnection {
                 System.out.println("Department Table Created");
             }
         }
+        if (metaData.isThisTableExists(DataBaseConstant.STUDENT_INFO_TABLE_NAME)) {
+            System.out.println(DataBaseConstant.STUDENT_INFO_TABLE_NAME + " EXISTS");
+        } else {
+            if (new StudentInfoTable(connection).create() > -1) {
+                System.out.println("Student info Table Created");
+            }
+        }
         if (metaData.isThisTableExists(DataBaseConstant.DINING_INFO_TABLE_NAME)) {
             System.out.println(DataBaseConstant.DINING_INFO_TABLE_NAME + " EXISTS");
         } else {
@@ -81,24 +103,6 @@ public class DataBaseConnection {
                 System.out.println("FINE info Table Created");
             }
         }
-
-        try {
-            connection.close();
-        } catch (SQLException e) {
-            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
-        }
-
+        return true;
     }
-
-    public Connection getConnection() {
-        try {
-            connection = DriverManager.getConnection("jdbc:hsqldb:file:database/Hall");
-            return connection;
-        } catch (SQLException e) {
-            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
-        }
-        ;
-        return null;
-    }
-
 }

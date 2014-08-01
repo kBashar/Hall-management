@@ -8,6 +8,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.ResourceBundle;
+import java.util.logging.Logger;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
@@ -16,6 +17,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.stage.Stage;
 import javafx.util.Callback;
 import laplab.hallmanagement.DiningInfo.DiningDatafromDatabase;
 import laplab.hallmanagement.DiningInfo.MonthlyInfo;
@@ -28,10 +30,10 @@ import laplab.student.StudentInfo;
 /**
  * FXML Controller class
  *
- * @author AURANGO SABBIR
+ * @author Khyrul Bashar
  */
 public class Fine_creditController implements Initializable {
-
+    private static final Logger log = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
     public ComboBox monthComboboxEnd;
     public TextField yearFieldEnd;
     public TextField yearFieldStart;
@@ -64,18 +66,6 @@ public class Fine_creditController implements Initializable {
         monthComboboxEnd.setValue(monthList.get(Month.getCurrentMonth()));
         DiningDatafromDatabase diningDatafromDatabase = new DiningDatafromDatabase();
         list = diningDatafromDatabase.getAllDiningData();
-
-       /* for (StudentDiningInfo studentDiningInfo : list) {
-            System.out.print(studentDiningInfo.getStudentID());
-            ArrayList<MonthlyInfo> monthlyInfos = studentDiningInfo.getMonthlyInfos();
-            for (MonthlyInfo monthlyInfo : monthlyInfos) {
-                System.out.print(" ");
-                System.out.print(monthlyInfo.getYear() + " " + monthlyInfo.getMonth()
-                        + " " + monthlyInfo.getAmount() + " " + monthlyInfo.getFine() +
-                        monthlyInfo.getCredit() + " " + monthlyInfo.isFineFree());
-            }
-            System.out.println();
-        }  */
         populateDataInTable(list, "amount");
     }
 
@@ -107,31 +97,26 @@ public class Fine_creditController implements Initializable {
                             }
                         }
                     } else {
+                        Dialogs.showInformationDialog(new Stage(),"Enter Month and year end");
                         System.out.println("Enter Month and year end");
                     }
 
                 } else {
+                    Dialogs.showInformationDialog(new Stage(),"Enter Month and year end");
                     System.out.println("Enter Month and year end");
+                    log.severe("Enter Month and year start");
                 }
             } else {
+                Dialogs.showInformationDialog(new Stage(),"Enter Month and year start");
                 System.out.println("Enter Month and year start");
+                log.severe("Enter Month and year start");
             }
         } else {
+            Dialogs.showInformationDialog(new Stage(),"Enter Month and year start");
             System.out.println("Enter Month and year start");
+            log.severe("Enter Month and year start");
         }
-
         list = diningDatafromDatabase.getCustomizedDiningData();
-
-        /* for (StudentDiningInfo studentDiningInfo : list) {
-            System.out.print(studentDiningInfo.getStudentID());
-            ArrayList<MonthlyInfo> monthlyInfos = studentDiningInfo.getMonthlyInfos();
-            for (MonthlyInfo monthlyInfo : monthlyInfos) {
-                System.out.print(" ");
-                System.out.print(monthlyInfo.getYear() + " " + monthlyInfo.getMonth() + " " + monthlyInfo.getAmount());
-            }
-            System.out.println();
-        } */
-
         if (creditCheckBox.isSelected()) {
             populateDataInTable(list, CREDIT);
         } else if (fineCheckBox.isSelected()) {
@@ -139,8 +124,6 @@ public class Fine_creditController implements Initializable {
         } else if (amountCheckBox.isSelected()) {
             populateDataInTable(list, AMOUNT);
         }
-
-
     }
 
     public void creditCheckBoxClicked(ActionEvent actionEvent) {
@@ -174,6 +157,8 @@ public class Fine_creditController implements Initializable {
             if (list != null) {
                 populateDataInTable(list, FINE);
             }
+        }   else {
+            amountCheckBox.setSelected(true);
         }
     }
 
@@ -267,16 +252,6 @@ public class Fine_creditController implements Initializable {
             sort(studentDiningInfos);
             PDFMaker pdfMaker=new PDFMaker(studentDiningInfos,Fine_creditController.FINE);
             pdfMaker.make();
-            /*for (StudentDiningInfo studentDiningInfo : studentDiningInfos) {
-                if (studentDiningInfo.getTotalFine() > 0) {
-
-                    System.out.println(
-                            studentDiningInfo.getStudentID() + "\t" +
-                                    studentDiningInfo.getRoom() + "\t" +
-                                    studentDiningInfo.getTotalFine()
-                    );
-                }
-            } */
         }
     }
 
@@ -287,16 +262,6 @@ public class Fine_creditController implements Initializable {
             sort(studentDiningInfos);
             PDFMaker pdfMaker=new PDFMaker(studentDiningInfos,Fine_creditController.AMOUNT);
             pdfMaker.make();
-            /* for (StudentDiningInfo studentDiningInfo : studentDiningInfos) {
-                if (studentDiningInfo.getTotalAmount() > 0) {
-
-                    System.out.println(
-                            studentDiningInfo.getStudentID() + "\t" +
-                                    studentDiningInfo.getRoom() + "\t" +
-                                    studentDiningInfo.getTotalAmount()
-                    );
-                }
-            }     */
         }
     }
 
@@ -307,15 +272,6 @@ public class Fine_creditController implements Initializable {
             sort(studentDiningInfos);
             PDFMaker pdfMaker=new PDFMaker(studentDiningInfos,Fine_creditController.CREDIT);
             pdfMaker.make();
-            /* for (StudentDiningInfo studentDiningInfo : studentDiningInfos) {
-                if (studentDiningInfo.getTotalCredit() > 0) {
-                    System.out.println(
-                            studentDiningInfo.getStudentID() + "\t" +
-                                    studentDiningInfo.getRoom() + "\t" +
-                                    studentDiningInfo.getTotalCredit()
-                    );
-                }
-            }      */
         }
     }
 

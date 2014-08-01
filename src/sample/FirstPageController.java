@@ -6,6 +6,7 @@ package sample;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Logger;
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -26,6 +27,7 @@ import laplab.student.StudentInfo;
 
 public class FirstPageController implements Initializable {
 
+    private static final Logger log = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
     public TextField batchField;
     public TextField deptField;
     public TextField roomField;
@@ -112,8 +114,7 @@ public class FirstPageController implements Initializable {
             flag = true;
         }
 
-        DataBaseConnection dataBaseConnection = new DataBaseConnection();
-        QueryHelper queryHelper = new QueryHelper(dataBaseConnection.getConnection());
+        QueryHelper queryHelper = new QueryHelper(DataBaseConnection.getConnection());
         if (!flag) {
             studentInfoObservableList = new GetDataFromDatabase().printData(queryHelper.query(DataBaseConstant.STUDENT_INFO_TABLE_NAME));
 

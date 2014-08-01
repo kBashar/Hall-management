@@ -22,7 +22,7 @@ import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 /**
- * @author AURANGO SABBIR
+ * @author Khyrul Bashar
  */
 public class SampleController implements Initializable {
 

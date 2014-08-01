@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
- * Created by jubayer on 2/26/14.
+ * Created by khyrul bashar on 2/26/14.
  */
 public class DataBaseMetaData {
 

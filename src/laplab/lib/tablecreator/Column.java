@@ -86,8 +86,8 @@ public class Column {
         if (!isNull) {
             columnStatement = columnStatement + " not null";
         }
-        if (defaultValue!=null) {
-            columnStatement =  columnStatement + " DEFAULT "+defaultValue;
+        if (defaultValue != null) {
+            columnStatement = columnStatement + " DEFAULT " + defaultValue;
         }
     }
 

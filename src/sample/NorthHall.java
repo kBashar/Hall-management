@@ -52,12 +52,12 @@ public class NorthHall extends Application {
         launch(args);
     }
 
-    private static void TempoDataEntry()    {
-        laplab.student.StudentInfoList studentInfoList=new StudentDataImport(new File("E:\\Hall Management\\seatallotment.xlsx")).startImporting();
-        if (!studentInfoList.isEmpty()){
-            DataBaseHelper dataBaseHelper=new DataBaseHelper(new DataBaseConnection().getConnection());
-            for (StudentInfo studentInfo:studentInfoList)   {
-                 dataBaseHelper.insertIntoDataBase(DataBaseConstant.STUDENT_INFO_TABLE_NAME, DataInputer.StudentInsert(studentInfo));
+    private static void TempoDataEntry() {
+        laplab.student.StudentInfoList studentInfoList = new StudentDataImport(new File("E:\\Hall Management\\seatallotment.xlsx")).startImporting();
+        if (!studentInfoList.isEmpty()) {
+            DataBaseHelper dataBaseHelper = new DataBaseHelper(new DataBaseConnection().getConnection());
+            for (StudentInfo studentInfo : studentInfoList) {
+                dataBaseHelper.insertIntoDataBase(DataBaseConstant.STUDENT_INFO_TABLE_NAME, DataInputer.StudentInsert(studentInfo));
             }
         }
     }

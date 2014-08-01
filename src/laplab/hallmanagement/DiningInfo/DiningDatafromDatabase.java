@@ -62,7 +62,7 @@ public class DiningDatafromDatabase {
         StringBuilder stringBuilder = new StringBuilder();
         String queryString = "";
         int count = 0;
-        if (endMonth != -1 && endYear != -1 && startMonth!=-1 && startYear!=-1) {
+        if (endMonth != -1 && endYear != -1 && startMonth != -1 && startYear != -1) {
             stringBuilder.append(CommonCharacters.SPACE);
             stringBuilder.append("month.id" + CommonCharacters.SPACE);
             stringBuilder.append("between" + CommonCharacters.SPACE);
@@ -145,7 +145,7 @@ public class DiningDatafromDatabase {
                 }
 
                 int student_id = resultSet.getInt("Student_ID");
-                int room=resultSet.getInt("Room");
+                int room = resultSet.getInt("Room");
                 if (count == 0) {
                     studentDiningInfo.setStudentID(student_id);
                     studentDiningInfo.setRoom(room);

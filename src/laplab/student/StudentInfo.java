@@ -220,14 +220,14 @@ public class StudentInfo {
         return ok;
     }
 
-    public static int getDepartment(String studentId)   {
-        Integer id_=Integer.getInteger(studentId);
-        return  ((id_ % 100000) / 1000);
+    public static int getDepartment(String studentId) {
+        Integer id_ = Integer.getInteger(studentId);
+        return ((id_ % 100000) / 1000);
     }
 
-    public static int getBatch(String studentId)   {
-        Integer id_=Integer.parseInt(studentId);
-        return  id_ /100000;
+    public static int getBatch(String studentId) {
+        Integer id_ = Integer.parseInt(studentId);
+        return id_ / 100000;
     }
 
     public static int getDepartmentID(String _department) {

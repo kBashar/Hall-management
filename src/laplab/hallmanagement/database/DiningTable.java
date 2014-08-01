@@ -17,10 +17,10 @@ public class DiningTable {
     private static final String TABLE_NAME = DataBaseConstant.DINING_INFO_TABLE_NAME;
 
     public static final String DINING_STUDENT_ID = "STUDENT_ID";
-    public static final String MONTH_ID="month_id";
-    public static final String AMOUNT="amount";
-    public static final String CREDIT_DAY="credit_day";
-    public static final String VOUCHER_ID="voucher_ID";
+    public static final String MONTH_ID = "month_id";
+    public static final String AMOUNT = "amount";
+    public static final String CREDIT_DAY = "credit_day";
+    public static final String VOUCHER_ID = "voucher_ID";
 
 
     private Connection connection = null;
@@ -39,13 +39,13 @@ public class DiningTable {
         columns.add(new Column(DiningTable.DINING_STUDENT_ID, Column.COLUMN_TYPE_INTEGER));
         columns.add(new Column(DiningTable.MONTH_ID, Column.COLUMN_TYPE_INTEGER));
         columns.add(new Column(DiningTable.AMOUNT, Column.COLUMN_TYPE_INTEGER));
-        columns.add(new Column(DiningTable.CREDIT_DAY, Column.COLUMN_TYPE_INTEGER,"0"));
-        columns.add(new Column(DiningTable.VOUCHER_ID,Column.setStringType(10)));
+        columns.add(new Column(DiningTable.CREDIT_DAY, Column.COLUMN_TYPE_INTEGER, "0"));
+        columns.add(new Column(DiningTable.VOUCHER_ID, Column.setStringType(10)));
         return columns;
     }
 
     private PrimaryKey createPrimaryKey() {
-        return new PrimaryKey(DiningTable.DINING_STUDENT_ID+","+
+        return new PrimaryKey(DiningTable.DINING_STUDENT_ID + "," +
                 DiningTable.MONTH_ID);
     }
 

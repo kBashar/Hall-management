@@ -16,7 +16,7 @@ import java.util.Date;
 public class Month {
 
     public static ObservableList<String> getMonthList() {
-        ObservableList<String> monthList= FXCollections.observableArrayList();
+        ObservableList<String> monthList = FXCollections.observableArrayList();
         monthList.addAll(new String[]{
                 "January",
                 "February",
@@ -34,15 +34,16 @@ public class Month {
     }
 
     public static int getCurrentMonth() {
-        Date date=new Date();
+        Date date = new Date();
         Calendar cal = Calendar.getInstance();
         cal.setTime(date);
         int month = cal.get(Calendar.MONTH);
 
         return month;
     }
+
     public static int getCurrentYear() {
-        Date date=new Date();
+        Date date = new Date();
         Calendar cal = Calendar.getInstance();
         cal.setTime(date);
         int month = cal.get(Calendar.YEAR);
@@ -51,8 +52,8 @@ public class Month {
     }
 
 
-    public static int getMonthIndex(String month)   {
-        ObservableList<String> monthList= FXCollections.observableArrayList();
+    public static int getMonthIndex(String month) {
+        ObservableList<String> monthList = FXCollections.observableArrayList();
         monthList.addAll(new String[]{
                 "January",
                 "February",
@@ -69,8 +70,8 @@ public class Month {
         return monthList.indexOf(month);
     }
 
-    public static String getMonthName(int month)   {
-        String[] months=new String[]{
+    public static String getMonthName(int month) {
+        String[] months = new String[]{
                 "January",
                 "February",
                 "March",
@@ -87,15 +88,15 @@ public class Month {
         return months[month];
     }
 
-    public static int getMonthID(int year,int month)    {
-        year=year*100;
-        return year+month;
+    public static int getMonthID(int year, int month) {
+        year = year * 100;
+        return year + month;
     }
 
-    public static int countMonth(int startYear,int startMonth,int endYear,int endMonth) {
-        int yearDifference=startYear-endYear-1;
-        int monthDifference=(13-(startMonth+1)+(endMonth+1));
-        System.out.println(yearDifference*12+monthDifference);
-        return yearDifference*12+monthDifference;
+    public static int countMonth(int startYear, int startMonth, int endYear, int endMonth) {
+        int yearDifference = startYear - endYear - 1;
+        int monthDifference = (13 - (startMonth + 1) + (endMonth + 1));
+        System.out.println(yearDifference * 12 + monthDifference);
+        return yearDifference * 12 + monthDifference;
     }
 }

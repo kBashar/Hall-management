@@ -79,7 +79,7 @@ public class DataBaseHelper {
 
     }
 
-    public int UpdateDataBase(String tableName,HashMap map,HashMap selectionArgs) {
+    public int UpdateDataBase(String tableName, HashMap map, HashMap selectionArgs) {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append(UPDATE);
         stringBuilder.append(CommonCharacters.SPACE);

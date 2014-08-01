@@ -110,7 +110,7 @@ public class DiningDatafromDatabase {
         }
         return getStudentsDiningInfoList(
                 new QueryHelper(new DataBaseConnection().getConnection()
-                ).qurreyInDataBase(queryString),
+                ).queryInDataBase(queryString),
                 Month.countMonth(startYear, startMonth, endYear, endMonth));
     }
 

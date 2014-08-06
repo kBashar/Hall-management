@@ -97,24 +97,44 @@ public class Fine_creditController implements Initializable {
                             }
                         }
                     } else {
-                        Dialogs.showInformationDialog(new Stage(),"Enter Month and year end");
+                        Dialogs.showErrorDialog(
+                                new Stage(),
+                                "Error in Query \n you should provide both End and Start Month",
+                                "Error",
+                                "Hall Management");
                         System.out.println("Enter Month and year end");
+                        return;
                     }
 
                 } else {
-                    Dialogs.showInformationDialog(new Stage(),"Enter Month and year end");
+                    Dialogs.showErrorDialog(
+                            new Stage(),
+                            "Error in Query \n you should provide both End and Start Month",
+                            "Error",
+                            "Hall Management");
                     System.out.println("Enter Month and year end");
                     log.severe("Enter Month and year start");
+                    return;
                 }
             } else {
-                Dialogs.showInformationDialog(new Stage(),"Enter Month and year start");
+                Dialogs.showErrorDialog(
+                        new Stage(),
+                        "Error in Query \n you should provide both End and Start Month",
+                        "Error",
+                        "Hall Management");
                 System.out.println("Enter Month and year start");
                 log.severe("Enter Month and year start");
+                return;
             }
         } else {
-            Dialogs.showInformationDialog(new Stage(),"Enter Month and year start");
+            Dialogs.showErrorDialog(
+                    new Stage(),
+                    "Error in Query \n you should provide both End and Start Month",
+                    "Error",
+                    "Hall Management");
             System.out.println("Enter Month and year start");
             log.severe("Enter Month and year start");
+            return;
         }
         list = diningDatafromDatabase.getCustomizedDiningData();
         if (creditCheckBox.isSelected()) {
@@ -182,6 +202,14 @@ public class Fine_creditController implements Initializable {
 
 
     private void populateDataInTable(ObservableList<StudentDiningInfo> studentDiningInfos, String what_to_show) {
+        if (studentDiningInfos.size()==0)   {
+            Dialogs.showInformationDialog(
+                    new Stage(),
+                    "No data Found \n you might check your query",
+                    "Warning",
+                    "Hall Management");
+            return;
+        }
         StudentDiningInfo sample = studentDiningInfos.get(0);
         ArrayList<MonthlyInfo> monthlyInfos = sample.getMonthlyInfos();
         tableView.getColumns().clear();

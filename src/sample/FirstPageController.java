@@ -13,13 +13,12 @@ import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 import laplab.hallmanagement.database.DataBaseConnection;
 import laplab.hallmanagement.database.DataBaseConstant;
+import laplab.hallmanagement.database.DepartmentTable;
 import laplab.hallmanagement.database.StudentInfoTable;
 import laplab.lib.databasehelper.QueryHelper;
 import laplab.lib.tablecreator.CommonCharacters;
@@ -56,16 +55,47 @@ public class FirstPageController implements Initializable {
 
         StringBuilder stringBuilder = new StringBuilder();
         String querryItem = new String();
-        querryItem = deptField.getText();
+        String deptFieldText = deptField.getText();
         boolean flag = false;
-        if (!querryItem.isEmpty()) {
-            String[] departments = querryItem.split(",");
-            if (departments.length == 0) {
-                departments[0] = querryItem;
+        if (deptFieldText != null) {
+            if (!deptFieldText.isEmpty()) {
+                // in STUDENTINFO Table department is saved as ID, But to provide
+                // better user-experience we are parsing dept. name to produce dept.
+                // id for user
+                String[] _departments = deptFieldText.split(",");
+                // if there is only one department then that is added in array
+                if (_departments.length == 0) {
+                    int _depID = DepartmentTable.getDeptID(querryItem);
+                    if (_depID == -1) {
+                        Dialogs.showErrorDialog(
+                                new Stage(),
+                                "Please Check Department Names \n\n" +
+                                        "\'" + deptFieldText + "\' is not a valid Department Name",
+                                "Error in Query",
+                                "Hall Management"
+                        );
+                        return;
+                    }
+                    _departments[0] = String.valueOf(_depID);
+                } else {
+                    for (int i = 0; i < _departments.length; i++) {
+                        int _deptID = DepartmentTable.getDeptID(_departments[i]);
+                        if (_deptID == -1) {
+                            Dialogs.showErrorDialog(
+                                    new Stage(),
+                                    "Please Check Department Names \n\n" +
+                                            "\'" + _departments[i] + "\' is not a valid Department Name",
+                                    "Error in Query",
+                                    "Hall Management"
+                            );
+                            return;
+                        }
+                        _departments[i] = String.valueOf(_deptID);
+                    }
+                    stringBuilder.append(buildWhereClause(StudentInfoTable.DEPARTMENT_COLUMN, _departments));
+                    flag = true;
+                }
             }
-
-            stringBuilder.append(buildWhereClause(StudentInfoTable.DEPARTMENT_COLUMN, departments));
-            flag = true;
         }
         querryItem = batchField.getText();
         if (!querryItem.isEmpty()) {
@@ -122,7 +152,15 @@ public class FirstPageController implements Initializable {
             studentInfoObservableList = new GetDataFromDatabase().printData(queryHelper.query(DataBaseConstant.STUDENT_INFO_TABLE_NAME, stringBuilder.toString()));
         }
         tabelView.setItems(studentInfoObservableList);
+        if (studentInfoObservableList.size() == 0)  {
+            Dialogs.showInformationDialog(
+                    new Stage(),
+                    "Please Check Query",
+                    "No Student Found",
+                    "Hall Management");
+        }
     }
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

@@ -84,7 +84,7 @@ public class FineCreditSettings implements Initializable {
                 System.out.println("Please fill ALL field");
                 return;
             }
-            HashMap map = DataInputer.FineInfoInsert(year, Month.getMonthIndex(month), batch, StudentInfo.getDepartmentID(dept));
+            HashMap map = DataInputer.FineInfoInsert(year, Month.getMonthIndex(month), batch, DepartmentTable.getDeptID(dept));
             int check = new DataBaseHelper(DataBaseConnection.getConnection()).insertIntoDataBase(
                     DataBaseConstant.FINE_TABLE_NAME,
                     map);

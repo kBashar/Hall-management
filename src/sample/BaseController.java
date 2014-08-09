@@ -114,10 +114,10 @@ public class BaseController implements Initializable {
         a.autosize();
         //a.resize(1000,1000);
         //a.autosize();
-        //AnchorPane.setTopAnchor(a, 0.0);
-        //AnchorPane.setBottomAnchor(a, 0.0);
-        //AnchorPane.setLeftAnchor(a, 0.0);
-        //AnchorPane.setRightAnchor(a, 0.0);
+        AnchorPane.setTopAnchor(a, 0.0);
+        AnchorPane.setBottomAnchor(a, 0.0);
+        AnchorPane.setLeftAnchor(a, 0.0);
+        AnchorPane.setRightAnchor(a, 0.0);
         anchorPan.getChildren().clear();
         anchorPan.getChildren().add(a);
     }

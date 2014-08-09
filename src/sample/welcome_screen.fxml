@@ -29,7 +29,7 @@
             </DropShadow>
          </effect>
          <image>
-            <Image url="@../shokh2.jpg" />
+            <Image url="@shokh2.jpg" />
          </image>
          <viewport>
             <Rectangle2D />

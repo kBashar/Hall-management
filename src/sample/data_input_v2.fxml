@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Separator layoutX="393.0" layoutY="82.0" orientation="VERTICAL" prefHeight="412.0" prefWidth="42.0" AnchorPane.bottomAnchor="106.0" AnchorPane.leftAnchor="393.0" AnchorPane.rightAnchor="365.0" AnchorPane.topAnchor="82.0">
+         <effect>
+            <DropShadow height="19.52" radius="10.372499999999999" spread="0.4" width="23.97">
+               <input>
+                  <SepiaTone />
+               </input>
+            </DropShadow>
+         </effect>
+      </Separator>
+      <Label layoutX="132.0" layoutY="63.0" prefHeight="38.0" prefWidth="144.0" text="DINING BILL" AnchorPane.leftAnchor="132.0" AnchorPane.topAnchor="63.0">
+         <font>
+            <Font name="Comic Sans MS Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="553.0" layoutY="63.0" prefHeight="38.0" prefWidth="136.0" text="CREDIT DAY" AnchorPane.rightAnchor="111.0" AnchorPane.topAnchor="63.0">
+         <font>
+            <Font name="Comic Sans MS Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="51.0" layoutY="150.0" prefHeight="38.0" prefWidth="109.0" text="Student ID   :" AnchorPane.leftAnchor="51.0" AnchorPane.topAnchor="150.0">
+         <font>
+            <Font name="Ubuntu" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="51.0" layoutY="206.0" prefHeight="38.0" prefWidth="109.0" text="Voucher no  :" AnchorPane.leftAnchor="51.0" AnchorPane.topAnchor="206.0">
+         <font>
+            <Font name="Ubuntu" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="51.0" layoutY="262.0" prefHeight="38.0" prefWidth="109.0" text="Amount        :" AnchorPane.leftAnchor="51.0" AnchorPane.topAnchor="262.0">
+         <font>
+            <Font name="Ubuntu" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="51.0" layoutY="315.0" prefHeight="38.0" prefWidth="109.0" text="Year               :" AnchorPane.leftAnchor="51.0" AnchorPane.topAnchor="315.0">
+         <font>
+            <Font name="Ubuntu" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="51.0" layoutY="369.0" prefHeight="38.0" prefWidth="109.0" text="Month           :" AnchorPane.leftAnchor="51.0" AnchorPane.topAnchor="369.0">
+         <font>
+            <Font name="Ubuntu" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="479.0" layoutY="207.0" prefHeight="38.0" prefWidth="109.0" text="Credit Day  :" AnchorPane.rightAnchor="212.0" AnchorPane.topAnchor="207.0">
+         <font>
+            <Font name="Ubuntu" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="479.0" layoutY="350.0" prefHeight="38.0" prefWidth="109.0" text="Month           :" AnchorPane.rightAnchor="212.0" AnchorPane.topAnchor="350.0">
+         <font>
+            <Font name="Ubuntu" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="479.0" layoutY="282.0" prefHeight="38.0" prefWidth="109.0" text="Year               :" AnchorPane.rightAnchor="212.0" AnchorPane.topAnchor="282.0">
+         <font>
+            <Font name="Ubuntu" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="479.0" layoutY="139.0" prefHeight="38.0" prefWidth="109.0" text="Student ID   :" AnchorPane.rightAnchor="212.0" AnchorPane.topAnchor="139.0">
+         <font>
+            <Font name="Ubuntu" size="15.0" />
+         </font>
+      </Label>
+      <TextField fx:id="dinningBillStudentID" layoutX="166.0" layoutY="157.0" prefHeight="25.0" prefWidth="173.0" AnchorPane.leftAnchor="166.0" AnchorPane.topAnchor="157.0" />
+      <TextField fx:id="dinningBillVoucher" layoutX="166.0" layoutY="213.0" prefHeight="25.0" prefWidth="173.0" AnchorPane.leftAnchor="166.0" AnchorPane.topAnchor="213.0" />
+      <TextField fx:id="dinningBillAmount" layoutX="166.0" layoutY="269.0" prefHeight="25.0" prefWidth="173.0" AnchorPane.leftAnchor="166.0" AnchorPane.topAnchor="269.0" />
+      <TextField fx:id="dinningBillYear" layoutX="166.0" layoutY="322.0" prefHeight="25.0" prefWidth="173.0" promptText="2014" AnchorPane.leftAnchor="166.0" AnchorPane.topAnchor="322.0" />
+      <TextField fx:id="creditStudentID" layoutX="588.0" layoutY="145.0" prefHeight="25.0" prefWidth="173.0" AnchorPane.rightAnchor="39.0" AnchorPane.topAnchor="145.0" />
+      <TextField fx:id="creditDay" layoutX="588.0" layoutY="213.0" prefHeight="25.0" prefWidth="173.0" AnchorPane.rightAnchor="39.0" AnchorPane.topAnchor="213.0" />
+      <TextField fx:id="creditYear" layoutX="588.0" layoutY="289.0" prefHeight="25.0" prefWidth="173.0" promptText="2014" AnchorPane.rightAnchor="39.0" AnchorPane.topAnchor="289.0" />
+      <ComboBox fx:id="dinningBillMonth" layoutX="166.0" layoutY="376.0" prefWidth="150.0" visibleRowCount="12" AnchorPane.leftAnchor="166.0" AnchorPane.topAnchor="376.0" />
+      <ComboBox fx:id="creditMonth" layoutX="588.0" layoutY="357.0" prefWidth="150.0" AnchorPane.rightAnchor="62.0" AnchorPane.topAnchor="357.0" />
+      <Button fx:id="inputButton" layoutX="146.0" layoutY="449.0" mnemonicParsing="false" onAction="#inputButtonClicked" prefHeight="38.0" prefWidth="89.0" text="Input" AnchorPane.bottomAnchor="113.0" AnchorPane.leftAnchor="146.0">
+         <font>
+            <Font name="Comic Sans MS" size="12.0" />
+         </font>
+      </Button>
+      <Button fx:id="creditInputButton" layoutX="568.0" layoutY="449.0" mnemonicParsing="false" onAction="#creditInputButtonClicked" prefHeight="38.0" prefWidth="89.0" text="Update" AnchorPane.bottomAnchor="113.0" AnchorPane.rightAnchor="143.0">
+         <font>
+            <Font name="Comic Sans MS" size="12.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

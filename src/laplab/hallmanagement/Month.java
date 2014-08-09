@@ -33,6 +33,14 @@ public class Month {
         return monthList;
     }
 
+    public static int getCurrentDay()   {
+        Date date = new Date();
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(date);
+        int day = cal.get(Calendar.DATE);
+        return day;
+    }
+
     public static int getCurrentMonth() {
         Date date = new Date();
         Calendar cal = Calendar.getInstance();

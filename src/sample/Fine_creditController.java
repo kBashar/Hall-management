@@ -23,7 +23,9 @@ import laplab.hallmanagement.DiningInfo.DiningDatafromDatabase;
 import laplab.hallmanagement.DiningInfo.MonthlyInfo;
 import laplab.hallmanagement.DiningInfo.StudentDiningInfo;
 import laplab.hallmanagement.Month;
+import laplab.hallmanagement.database.DepartmentTable;
 import laplab.hallmanagement.pdf.PDFMaker;
+import laplab.lib.tablecreator.CommonCharacters;
 import laplab.student.StudentInfo;
 
 
@@ -87,53 +89,67 @@ public class Fine_creditController implements Initializable {
                         String batch = batchField.getText();
                         if (batch != null) {
                             if (!batch.isEmpty()) {
-                                diningDatafromDatabase.batch = Integer.parseInt(batch);
+                                String[] _batches = batch.split(CommonCharacters.COMMA);
+                                if (_batches.length == 0) {
+                                    diningDatafromDatabase.batches.add(batch);
+                                } else {
+                                    for (int i = 0; i < _batches.length; i++) {
+                                        diningDatafromDatabase.batches.add(_batches[i]);
+                                    }
+                                }
                             }
                         }
                         String dept = deptField.getText();
                         if (dept != null) {
                             if (!dept.isEmpty()) {
-                                diningDatafromDatabase.department = StudentInfo.getDepartmentID(dept);
+                                String[] _departments = dept.split(CommonCharacters.COMMA);
+                                int _deptID;
+                                if (_departments.length == 0) {
+                                    _deptID = DepartmentTable.getDeptID(dept);
+                                    if (_deptID == -1)  {
+                                        Dialogs.showErrorDialog(
+                                                new Stage(),
+                                                "Please Check Department Names \n\n" +
+                                                        "\'"+dept+"\' is not a valid Department Name",
+                                                "Error in Query",
+                                                "Hall Management"
+                                        );
+                                        return;
+                                    }
+                                    diningDatafromDatabase.batches.add(String.valueOf(_deptID));
+                                } else {
+                                    for (int i = 0; i < _departments.length; i++) {
+                                        _deptID = DepartmentTable.getDeptID(_departments[i]);
+                                        if (_deptID == -1)  {
+                                            Dialogs.showErrorDialog(
+                                                    new Stage(),
+                                                    "Please Check Department Names \n\n" +
+                                                            "\'"+_departments[i]+"\' is not a valid  Name",
+                                                    "Error in Query",
+                                                    "Hall Management"
+                                            );
+                                            return;
+                                        }
+                                        diningDatafromDatabase.departments.add(String.valueOf(_deptID));
+                                    }
+                                }
                             }
                         }
                     } else {
-                        Dialogs.showErrorDialog(
-                                new Stage(),
-                                "Error in Query \n you should provide both End and Start Month",
-                                "Error",
-                                "Hall Management");
-                        System.out.println("Enter Month and year end");
+                        showYearMonthErrorDialog();
                         return;
                     }
 
                 } else {
-                    Dialogs.showErrorDialog(
-                            new Stage(),
-                            "Error in Query \n you should provide both End and Start Month",
-                            "Error",
-                            "Hall Management");
-                    System.out.println("Enter Month and year end");
-                    log.severe("Enter Month and year start");
+                    showYearMonthErrorDialog();
                     return;
                 }
             } else {
-                Dialogs.showErrorDialog(
-                        new Stage(),
-                        "Error in Query \n you should provide both End and Start Month",
-                        "Error",
-                        "Hall Management");
-                System.out.println("Enter Month and year start");
-                log.severe("Enter Month and year start");
+                showYearMonthErrorDialog();
                 return;
             }
         } else {
-            Dialogs.showErrorDialog(
-                    new Stage(),
-                    "Error in Query \n you should provide both End and Start Month",
-                    "Error",
-                    "Hall Management");
-            System.out.println("Enter Month and year start");
-            log.severe("Enter Month and year start");
+            showYearMonthErrorDialog();
             return;
         }
         list = diningDatafromDatabase.getCustomizedDiningData();
@@ -177,7 +193,7 @@ public class Fine_creditController implements Initializable {
             if (list != null) {
                 populateDataInTable(list, FINE);
             }
-        }   else {
+        } else {
             amountCheckBox.setSelected(true);
         }
     }
@@ -202,7 +218,7 @@ public class Fine_creditController implements Initializable {
 
 
     private void populateDataInTable(ObservableList<StudentDiningInfo> studentDiningInfos, String what_to_show) {
-        if (studentDiningInfos.size()==0)   {
+        if (studentDiningInfos.size() == 0) {
             Dialogs.showInformationDialog(
                     new Stage(),
                     "No data Found \n you might check your query",
@@ -278,7 +294,7 @@ public class Fine_creditController implements Initializable {
         if (list != null) {
             ObservableList<StudentDiningInfo> studentDiningInfos = FXCollections.observableList(list);
             sort(studentDiningInfos);
-            PDFMaker pdfMaker=new PDFMaker(studentDiningInfos,Fine_creditController.FINE);
+            PDFMaker pdfMaker = new PDFMaker(studentDiningInfos, Fine_creditController.FINE);
             pdfMaker.make();
         }
     }
@@ -288,7 +304,7 @@ public class Fine_creditController implements Initializable {
         if (list != null) {
             ObservableList<StudentDiningInfo> studentDiningInfos = FXCollections.observableArrayList(list);
             sort(studentDiningInfos);
-            PDFMaker pdfMaker=new PDFMaker(studentDiningInfos,Fine_creditController.AMOUNT);
+            PDFMaker pdfMaker = new PDFMaker(studentDiningInfos, Fine_creditController.AMOUNT);
             pdfMaker.make();
         }
     }
@@ -298,7 +314,7 @@ public class Fine_creditController implements Initializable {
         if (list != null) {
             ObservableList<StudentDiningInfo> studentDiningInfos = FXCollections.observableArrayList(list);
             sort(studentDiningInfos);
-            PDFMaker pdfMaker=new PDFMaker(studentDiningInfos,Fine_creditController.CREDIT);
+            PDFMaker pdfMaker = new PDFMaker(studentDiningInfos, Fine_creditController.CREDIT);
             pdfMaker.make();
         }
     }
@@ -312,4 +328,13 @@ public class Fine_creditController implements Initializable {
         });
         return studentDinningList;
     }
+
+    private static void showYearMonthErrorDialog()  {
+        Dialogs.showErrorDialog(
+                new Stage(),
+                "Error in Query \n you should provide both End and Start Month",
+                "Error",
+                "Hall Management");
+    }
+
 }

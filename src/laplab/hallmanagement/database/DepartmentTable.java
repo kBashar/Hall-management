@@ -51,4 +51,27 @@ public class DepartmentTable {
         }
     }
 
+    //TODO: this should work from database to make it dynamic.
+    public static int getDeptID(String _department) {
+        if (_department.equals("CE")) {
+            return 1;
+        } else if (_department.equals("EEE")) {
+            return 2;
+        } else if (_department.equals("ME")) {
+            return 3;
+        } else if (_department.equals("CSE")) {
+            return 4;
+        } else if (_department.equals("URP")) {
+            return 5;
+        } else if (_department.equals("Arch")) {
+            return 6;
+        } else if (_department.equals("PME")) {
+            return 7;
+        } else if (_department.equals("ETE")) {
+            return 8;
+        } else {
+            System.out.println("Sorry Department not Found");
+            return -1;
+        }
+    }
 }

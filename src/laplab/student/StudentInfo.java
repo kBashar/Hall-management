@@ -20,6 +20,7 @@ public class StudentInfo {
     private String parent_contact;
     private String blood_group;
 
+    //TODO: make constructors compressed by calling uper methods
     public StudentInfo() {
 
     }
@@ -228,29 +229,6 @@ public class StudentInfo {
     public static int getBatch(String studentId) {
         Integer id_ = Integer.parseInt(studentId);
         return id_ / 100000;
-    }
-
-    public static int getDepartmentID(String _department) {
-        if (_department.equals("CE")) {
-            return 1;
-        } else if (_department.equals("EEE")) {
-            return 2;
-        } else if (_department.equals("ME")) {
-            return 3;
-        } else if (_department.equals("CSE")) {
-            return 4;
-        } else if (_department.equals("URP")) {
-            return 5;
-        } else if (_department.equals("Arch")) {
-            return 6;
-        } else if (_department.equals("PME")) {
-            return 7;
-        } else if (_department.equals("ETE")) {
-            return 8;
-        } else {
-            System.out.println("Sorry Department not Found");
-            return 0;
-        }
     }
 
 }

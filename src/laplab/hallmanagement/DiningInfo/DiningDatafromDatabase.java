@@ -9,6 +9,7 @@ import laplab.lib.tablecreator.CommonCharacters;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Logger;
 
 /**
@@ -19,7 +20,7 @@ import java.util.logging.Logger;
  * To change this template use File | Settings | File Templates.
  */
 public class DiningDatafromDatabase {
-    private static final Logger log= Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
+    private static final Logger log = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
     private static String mainQueryString = "select studentinfo.id as Student_ID,studentinfo.ROOM as Room," +
             "dining.amount,dining.credit_day,month.month,month.year,batch.fine" +
             ",FINE_CREDIT.ISFREE from studentInfo,batch\n" +
@@ -33,9 +34,10 @@ public class DiningDatafromDatabase {
     public int startMonth = -1;
     public int endYear = -1;
     public int endMonth = -1;
-    public int batch = -1;
-    public int department = -1;
     private int totalMonth = -1;
+    public ArrayList<String> departments = new ArrayList<>();
+    public ArrayList<String> batches = new ArrayList<>();
+    public ArrayList<String> ids = new ArrayList<>();
 
     public DiningDatafromDatabase() {
 
@@ -76,7 +78,7 @@ public class DiningDatafromDatabase {
             count++;
         }
 
-        if (batchAppending() != null) {
+        if (batches.size() > 0) {
             if (count > 0) {
                 stringBuilder.append(CommonCharacters.SPACE);
                 stringBuilder.append(CommonCharacters.AND);
@@ -85,7 +87,16 @@ public class DiningDatafromDatabase {
             stringBuilder.append(batchAppending());
             count++;
         }
-        if (departmentAppending() != null) {
+        if (ids.size() > 0) {
+            if (count > 0) {
+                stringBuilder.append(CommonCharacters.SPACE);
+                stringBuilder.append(CommonCharacters.AND);
+                stringBuilder.append(CommonCharacters.SPACE);
+            }
+            stringBuilder.append(idAppending());
+            count++;
+        }
+        if (departments.size() > 0) {
 
             if (count > 0) {
                 stringBuilder.append(CommonCharacters.SPACE);
@@ -118,18 +129,49 @@ public class DiningDatafromDatabase {
                 Month.countMonth(startYear, startMonth, endYear, endMonth));
     }
 
-    private String batchAppending() {
-        if (batch != -1) {
-            String st = "studentInfo.batch=" + String.valueOf(batch);
+    private String idAppending() {
+        if (ids.size() > 0) {
+            StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.append(CommonCharacters.FIRSTBRACES);
+            for (int i = 0; i < ids.size(); i++) {
+                stringBuilder.append("studentInfo.ID=" + String.valueOf(ids.get(i)));
+                stringBuilder.append(CommonCharacters.SPACE + CommonCharacters.OR_SIGN + CommonCharacters.SPACE);
+            }
+            stringBuilder.deleteCharAt(stringBuilder.lastIndexOf("r"));
+            stringBuilder.deleteCharAt(stringBuilder.lastIndexOf("o"));
+            stringBuilder.append(CommonCharacters.SECONDBRACES + CommonCharacters.SPACE);
+            return stringBuilder.toString();
+        } else return null;
+    }
 
-            return st;
+
+    private String batchAppending() {
+        if (batches.size() > 0) {
+            StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.append(CommonCharacters.FIRSTBRACES);
+            for (int i = 0; i < batches.size(); i++) {
+                stringBuilder.append("studentInfo.batch=" + String.valueOf(batches.get(i)));
+                stringBuilder.append(CommonCharacters.SPACE + CommonCharacters.OR_SIGN + CommonCharacters.SPACE);
+            }
+            stringBuilder.deleteCharAt(stringBuilder.lastIndexOf("r"));
+            stringBuilder.deleteCharAt(stringBuilder.lastIndexOf("o"));
+            stringBuilder.append(CommonCharacters.SECONDBRACES + CommonCharacters.SPACE);
+            return stringBuilder.toString();
         } else return null;
     }
 
     private String departmentAppending() {
-        if (department != -1) {
-            String st = "studentInfo.department=" + String.valueOf(department);
-            return st;
+        if (departments.size() > 0) {
+            StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.append(CommonCharacters.FIRSTBRACES);
+            for (int i = 0; i < departments.size(); i++) {
+                stringBuilder.append("studentInfo.department=" + String.valueOf(departments.get(i)));
+                stringBuilder.append(CommonCharacters.SPACE + CommonCharacters.OR_SIGN + CommonCharacters.SPACE);
+            }
+            stringBuilder.deleteCharAt(stringBuilder.lastIndexOf("r"));
+            stringBuilder.deleteCharAt(stringBuilder.lastIndexOf("o"));
+            stringBuilder.append(CommonCharacters.SECONDBRACES + CommonCharacters.SPACE);
+            return stringBuilder.toString();
         } else return null;
     }
 

@@ -10,6 +10,7 @@ import javafx.stage.Stage;
 import laplab.hallmanagement.database.DataBaseConnection;
 import laplab.hallmanagement.database.DataBaseConstant;
 import laplab.hallmanagement.database.DataInputer;
+import laplab.hallmanagement.database.MonthTable;
 import laplab.hallmanagement.dataimport.StudentDataImport;
 import laplab.lib.databasehelper.DataBaseHelper;
 import laplab.student.StudentInfo;
@@ -22,7 +23,8 @@ public class Main extends Application {
     private static final Logger logger= Logger.getLogger(Main.class.getName());
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("Sample.fxml"));
+//        Parent root = FXMLLoader.load(getClass().getResource("Sample.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("base.fxml"));
         Scene scene = new Scene(root);
         stage.setScene(scene);
         Screen screen = Screen.getPrimary();
@@ -43,6 +45,9 @@ public class Main extends Application {
             logger.severe("Can't Found or create Database");
             return;
         }
+        // to update database to include new month. if a new month starts it'll
+        // update the database
+        MonthTable.updateNewMonth();
         logger.log(Level.INFO,"Here in brasil");
         launch(args);
     }

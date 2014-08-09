@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="377.0" prefWidth="417.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TableView layoutY="-1.0" prefHeight="377.0" prefWidth="417.0" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-1.0">
+        <columns>
+          <TableColumn prefWidth="133.0" resizable="false" text="Month" />
+          <TableColumn prefWidth="140.0" resizable="false" text="Voucher no." />
+            <TableColumn prefWidth="143.0" resizable="false" text="Amount" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

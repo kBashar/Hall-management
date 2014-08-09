@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="616.0" prefWidth="598.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <VBox layoutX="209.0" layoutY="267.0" prefHeight="321.0" prefWidth="195.0">
+         <children>
+            <TextField fx:id="id" prefHeight="41.0" prefWidth="195.0" promptText="ID" text="" />
+            <TextField fx:id="name" prefHeight="42.0" prefWidth="195.0" promptText="Name" text="" />
+            <TextField fx:id="room" prefHeight="40.0" prefWidth="195.0" promptText="Room" text="" />
+            <TextField fx:id="contact" prefHeight="42.0" prefWidth="195.0" promptText="Contact" text="" />
+            <TextField fx:id="parent" prefHeight="39.0" prefWidth="195.0" promptText="Parent" text="" />
+            <TextField fx:id="parent_contact" prefHeight="45.0" prefWidth="195.0" promptText="Parent Contact" text="" />
+            <TextField fx:id="blood_group" prefHeight="44.0" prefWidth="195.0" promptText="Blood Group" text="" />
+            <TextField prefHeight="39.0" prefWidth="195.0" promptText="Image" text="" />
+         </children>
+      </VBox>
+      <VBox id="VBox" alignment="CENTER_LEFT" layoutX="22.0" layoutY="267.0" prefHeight="283.0" prefWidth="187.0" spacing="15.0">
+         <children>
+            <Label prefHeight="27.0" prefWidth="88.0" text="ID">
+               <font>
+                  <Font size="18.0" fx:id="x1" />
+               </font>
+            </Label>
+            <Label font="$x1" prefHeight="20.0" prefWidth="85.0" text="Name " />
+            <Label font="$x1" prefHeight="24.0" prefWidth="111.0" text="Room No. " />
+            <Label font="$x1" prefHeight="24.0" prefWidth="148.0" text="Contact number " />
+            <Label font="$x1" prefHeight="24.0" prefWidth="125.0" text="Parent name" />
+            <Label font="$x1" prefHeight="24.0" prefWidth="148.0" text="Parent Number " />
+            <Label font="$x1" prefHeight="24.0" prefWidth="125.0" text="Blood Group " />
+            <Label font="$x1" prefHeight="20.0" prefWidth="85.0" text="Picture" />
+         </children>
+      </VBox>
+      <Button fx:id="saveButton" layoutX="522.0" layoutY="553.0" mnemonicParsing="false" onAction="#saveButttonClicked" prefHeight="40.0" prefWidth="52.0" text="Save" />
+      <Button layoutX="423.0" layoutY="558.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="59.0" text="Browse" />
+      <ImageView fitHeight="183.0" fitWidth="165.0" layoutX="210.0" layoutY="61.0" pickOnBounds="true" preserveRatio="true" />
+      <Button layoutX="522.0" layoutY="132.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="44.0" text="Edit" />
+      <Label layoutX="225.0" layoutY="14.0" prefHeight="30.0" prefWidth="134.0" text="DESCRIPTION">
+         <font>
+            <Font name="Lucida Console" size="19.0" />
+         </font>
+         <effect>
+            <Glow>
+               <input>
+                  <DropShadow />
+               </input>
+            </Glow>
+         </effect>
+      </Label>
+   </children>
+</AnchorPane>

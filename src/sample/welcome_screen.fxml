@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.web.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="620.0" prefWidth="785.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Separator layoutX="392.0" layoutY="71.0" orientation="VERTICAL" prefHeight="412.0" prefWidth="42.0" AnchorPane.bottomAnchor="117.0" AnchorPane.leftAnchor="392.0" AnchorPane.rightAnchor="366.0" AnchorPane.topAnchor="71.0">
+         <effect>
+            <DropShadow height="19.52" radius="10.372499999999999" spread="0.4" width="23.97">
+               <input>
+                  <SepiaTone />
+               </input>
+            </DropShadow>
+         </effect>
+      </Separator>
+      <ImageView fitHeight="343.0" fitWidth="277.0" layoutX="109.0" layoutY="94.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="163.0" AnchorPane.leftAnchor="109.0">
+         <effect>
+            <DropShadow spread="0.3">
+               <input>
+                  <Glow />
+               </input>
+            </DropShadow>
+         </effect>
+         <image>
+            <Image url="@../shokh2.jpg" />
+         </image>
+         <viewport>
+            <Rectangle2D />
+         </viewport>
+      </ImageView>
+      <Label layoutX="136.0" layoutY="453.0" prefHeight="38.0" prefWidth="184.0" text="শহীদ তারেক হুদা (১৯৪৮-১৯৭১)" AnchorPane.bottomAnchor="109.0" AnchorPane.leftAnchor="136.0">
+         <font>
+            <Font name="Siyam Rupali" size="12.0" />
+         </font>
+         <effect>
+            <Glow level="0.58">
+               <input>
+                  <InnerShadow />
+               </input>
+            </Glow>
+         </effect>
+      </Label>
+      <Label layoutX="451.0" layoutY="75.0" prefHeight="38.0" prefWidth="219.0" text="Welcome !!" AnchorPane.rightAnchor="130.0" AnchorPane.topAnchor="75.0">
+         <font>
+            <Font name="Lucida Calligraphy Italic" size="29.0" />
+         </font>
+      </Label>
+      <TextArea layoutX="451.0" layoutY="150.0" prefHeight="268.0" prefWidth="299.0" AnchorPane.bottomAnchor="182.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="150.0">
+         <effect>
+            <DropShadow />
+         </effect>
+      </TextArea>
+   </children>
+</AnchorPane>

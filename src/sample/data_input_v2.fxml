@@ -9,7 +9,8 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="sample.Data_inputController">
    <children>
       <Separator layoutX="393.0" layoutY="82.0" orientation="VERTICAL" prefHeight="412.0" prefWidth="42.0" AnchorPane.bottomAnchor="106.0" AnchorPane.leftAnchor="393.0" AnchorPane.rightAnchor="365.0" AnchorPane.topAnchor="82.0">
          <effect>

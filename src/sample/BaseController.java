@@ -19,10 +19,10 @@ import java.util.ResourceBundle;
  * Created with IntelliJ IDEA.
  * User: ahmed
  * Date: 8/8/14
- * Time: 6:14 PM
+ * Time: 8:33 PM
  * To change this template use File | Settings | File Templates.
  */
-public class CheckController  implements Initializable {
+public class BaseController implements Initializable {
 
     @FXML
     private AnchorPane anchorPan;
@@ -142,11 +142,35 @@ public class CheckController  implements Initializable {
     }
 
     public void studentButtonClicked(ActionEvent actionEvent) {
-        //To change body of created methods use File | Settings | File Templates.
+        Node r = null;
+        try {
+            r = (Node) FXMLLoader.load(getClass().getResource("students.fxml"));
+        } catch (IOException e) {
+            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+        }
+        a = (AnchorPane) r;
+        AnchorPane.setTopAnchor(a, 0.0);
+        AnchorPane.setBottomAnchor(a, 0.0);
+        AnchorPane.setLeftAnchor(a, 0.0);
+        AnchorPane.setRightAnchor(a, 0.0);
+        anchorPan.getChildren().clear();
+        anchorPan.getChildren().add(a);
     }
 
     public void finecreditsButtonClicked(ActionEvent actionEvent) {
-        //To change body of created methods use File | Settings | File Templates.
+        Node r = null;
+        try {
+            r = (Node) FXMLLoader.load(getClass().getResource("fine_credits.fxml"));
+        } catch (IOException e) {
+            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+        }
+        a = (AnchorPane) r;
+        AnchorPane.setTopAnchor(a, 0.0);
+        AnchorPane.setBottomAnchor(a, 0.0);
+        AnchorPane.setLeftAnchor(a, 0.0);
+        AnchorPane.setRightAnchor(a, 0.0);
+        anchorPan.getChildren().clear();
+        anchorPan.getChildren().add(a);
     }
 
     public void dataInputButtonClicked(ActionEvent actionEvent) {
@@ -155,7 +179,7 @@ public class CheckController  implements Initializable {
         System.out.println(e);
         Node r = null;
         try {
-            r = (Node) FXMLLoader.load(getClass().getResource("Data_input_check.fxml"));
+            r = (Node) FXMLLoader.load(getClass().getResource("Data_input_v2.fxml"));
         } catch (IOException e1) {
             e1.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
         }

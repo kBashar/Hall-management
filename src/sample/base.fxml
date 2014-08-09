@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="sample.CheckController">
+  <children>
+    <SplitPane dividerPositions="0.04285714285714286" orientation="VERTICAL" prefHeight="72.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+      <items>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" />
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="59.0" prefWidth="775.0">
+          <children>
+            <Button fx:id="studentButton" layoutX="14.0" layoutY="13.0" mnemonicParsing="false" onAction="#studentButtonClicked" prefHeight="38.0" prefWidth="37.0" />
+            <Button fx:id="finecreditsButton" layoutX="57.0" layoutY="13.0" mnemonicParsing="false" onAction="#finecreditsButtonClicked" prefHeight="38.0" prefWidth="37.0" />
+            <Button fx:id="dataInputButton" layoutX="100.0" layoutY="13.0" mnemonicParsing="false" onAction="#dataInputButtonClicked" prefHeight="38.0" prefWidth="37.0" />
+            <MenuBar layoutX="151.0" layoutY="20.0">
+              <menus>
+                <Menu mnemonicParsing="false" text="File">
+                  <items>
+                    <MenuItem mnemonicParsing="false" onAction="#addNewStudentCliked" text="Add New" fx:id="addNewStudent" />
+                    <MenuItem mnemonicParsing="false" onAction="#addNewbatchMenuClicked" text="Add New Batch" fx:id="addNewBatch" />
+                    <MenuItem mnemonicParsing="false" onAction="#addNewDeptMenuClicked" text="Add New Dept." fx:id="addNewDept" />
+                    <MenuItem mnemonicParsing="false" onAction="#editClicked" text="Edit" fx:id="edit" />
+                    <MenuItem mnemonicParsing="false" onAction="#deleteClicked" text="Delete" fx:id="delete" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Settings">
+                  <items>
+                    <MenuItem mnemonicParsing="false" onAction="#finecreditSettingsClicked" text="Fine Credit Settings" fx:id="finecreditSettings" />
+                    <MenuItem mnemonicParsing="false" text="Delete" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="About" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+            <ImageView fitHeight="51.0" fitWidth="46.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="202.21145248413086">
+              <image>
+                <Image url="@logo.png" />
+              </image>
+            </ImageView>
+            <Label layoutY="14.0" prefHeight="38.0" prefWidth="167.0" text="শহীদ তারেক হুদা হল" AnchorPane.rightAnchor="14.0">
+              <effect>
+                <Glow level="0.1">
+                  <input>
+                    <DropShadow />
+                  </input>
+                </Glow>
+              </effect>
+              <font>
+                <Font name="Siyam Rupali" size="16.0" />
+              </font>
+            </Label>
+          </children>
+        </AnchorPane>
+      </items>
+    </SplitPane>
+    <AnchorPane fx:id="anchorPan" layoutX="1.0" layoutY="0.0" prefHeight="528.0" prefWidth="798.0" />
+  </children>
+</AnchorPane>

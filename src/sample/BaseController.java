@@ -8,6 +8,8 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -24,6 +26,9 @@ import java.util.ResourceBundle;
  */
 public class BaseController implements Initializable {
 
+    public Button studentButton;
+    public Button finecreditsButton;
+    public Button dataInputButton;
     @FXML
     private AnchorPane anchorPan;
 
@@ -31,79 +36,14 @@ public class BaseController implements Initializable {
     private Button b;
     private AnchorPane a;
 
-    /*@FXML
-    public void handleButtonActionStudent(ActionEvent event) throws IOException {
-        String e = event.toString();
-
-        System.out.println(e);
-        Node r = (Node) FXMLLoader.load(getClass().getResource("First_page.fxml"));
-        a = (AnchorPane) r;
-        //a.resize(1000,1000);
-        //a.autosize();
-        AnchorPane.setTopAnchor(a, 0.0);
-        AnchorPane.setBottomAnchor(a, 0.0);
-        AnchorPane.setLeftAnchor(a, 0.0);
-        AnchorPane.setRightAnchor(a, 0.0);
-        acc.getChildren().clear();
-        acc.getChildren().add(a);
-    }
-
-    @FXML
-    public void handleButtonActionFine(ActionEvent event) throws IOException {
-        String e = event.toString();
-
-        System.out.println(e);
-        Node r = (Node) FXMLLoader.load(getClass().getResource("Fine_credit.fxml"));
-        a = (AnchorPane) r;
-        //a.resize(1000,1000);
-        //a.autosize();
-        AnchorPane.setTopAnchor(a, 0.0);
-        AnchorPane.setBottomAnchor(a, 0.0);
-        AnchorPane.setLeftAnchor(a, 0.0);
-        AnchorPane.setRightAnchor(a, 0.0);
-        acc.getChildren().clear();
-        acc.getChildren().add(a);
-    } */
-
-   /* @FXML
-    public void handleButtonActionDinningDataEntry(ActionEvent event) throws IOException {
-        String e = event.toString();
-
-        System.out.println(e);
-        Node r = (Node) FXMLLoader.load(getClass().getResource("welcome_screen.fxml"));
-        a = (AnchorPane) r;
-        //a.resize(1000,1000);
-        //a.autosize();
-        AnchorPane.setTopAnchor(a, 0.0);
-        AnchorPane.setBottomAnchor(a, 0.0);
-        AnchorPane.setLeftAnchor(a, 0.0);
-        AnchorPane.setRightAnchor(a, 0.0);
-        acc.getChildren().clear();
-        acc.getChildren().add(a);
-    }
-
-    @FXML
-    public void handelMenuActionAddnew(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("StudentDataEntry.fxml"));
-        Scene scene = new Scene(root);
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.setTitle("ADD NEW");
-        stage.show();
-    }
-
-    @FXML
-    public void handelMenuActionEdit(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("Edit.fxml"));
-        Scene scene = new Scene(root);
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.setTitle("EDIT");
-        stage.show();
-    }  */
-
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        /*Image studentImage = new Image(getClass().getResourceAsStream("/sample/start_students.png"));
+        Image dataInputImage = new Image(getClass().getResourceAsStream("/sample/dinput.png"));
+        Image amountImage = new Image(getClass().getResourceAsStream("/sample/money-logo.jpg"));
+        studentButton.setGraphic(new ImageView(studentImage));
+        finecreditsButton.setGraphic(new ImageView(amountImage));
+        dataInputButton.setGraphic(new ImageView(dataInputImage));*/
         Node r = null;
         try {
             r = (Node) FXMLLoader.load(getClass().getResource("welcome_screen.fxml"));

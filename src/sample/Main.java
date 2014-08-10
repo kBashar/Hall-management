@@ -23,7 +23,6 @@ public class Main extends Application {
     private static final Logger logger= Logger.getLogger(Main.class.getName());
     @Override
     public void start(Stage stage) throws Exception {
-//        Parent root = FXMLLoader.load(getClass().getResource("Sample.fxml"));
         Parent root = FXMLLoader.load(getClass().getResource("base.fxml"));
         Scene scene = new Scene(root);
         stage.setScene(scene);

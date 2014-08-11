@@ -60,7 +60,7 @@ public class DescriptionController implements Initializable {
         id.setText(String.valueOf(student.getId()));
         room.setText(String.valueOf(student.getRoom()));
         name.setText(student.getName());
-        setText(student.getContact(),contact);
+        setText(student.getContact(), contact);
 
         stage = new Stage();
         stage.setTitle("Student Detail Info");
@@ -69,15 +69,15 @@ public class DescriptionController implements Initializable {
         stage.show();
 
         QueryHelper queryHelper = new QueryHelper(DataBaseConnection.getConnection());
-        ResultSet resultSet = queryHelper.queryInDataBase("select PARENT,PARENT_CONTACT,BLOOD_GROUP from studentinfo where id ="+student.getId());
+        ResultSet resultSet = queryHelper.queryInDataBase("select PARENT_NAME,PARENT_CONTACT,BLOOD_GROUP from studentinfo where id =" + student.getId());
         try {
             while (resultSet.next()) {
                 String _parentContact = resultSet.getString(StudentInfoTable.PARENT_CONTACT_COLUMN);
-                setText(_parentContact,parent_contact);
+                setText(_parentContact, parent_contact);
                 String _bloodGroup = resultSet.getString(StudentInfoTable.BLOOD_GROUP_COLUMN);
-                setText(_bloodGroup,blood_group);
+                setText(_bloodGroup, blood_group);
                 String _parentName = resultSet.getString(StudentInfoTable.PARENT_NAME_COLUMN);
-                setText(_parentName,studentParent);
+                setText(_parentName, studentParent);
             }
         } catch (SQLException e) {
             e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
@@ -94,7 +94,7 @@ public class DescriptionController implements Initializable {
         //To change body of created methods use File | Settings | File Templates.
     }
 
-    private void setText(String text,TextField textField)   {
+    private void setText(String text, TextField textField) {
         if (text != null) {
             if (!text.isEmpty()) {
                 textField.setText(text);

@@ -60,71 +60,6 @@ public class StudentController implements Initializable {
 
     public void setupTable() {
         tableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
-       /*
-        // a cell factory for all Integer valued columns
-        Callback<TableColumn<StudentInfo, Integer>, TableCell<StudentInfo, Integer>> integerCellFactory =
-                new Callback<TableColumn<StudentInfo, Integer>, TableCell<StudentInfo, Integer>>() {
-            @Override
-            public TableCell<StudentInfo, Integer> call(TableColumn<StudentInfo, Integer> studentInfoIntegerTableColumn) {
-                final TableCell<StudentInfo, Integer> cell = new TableCell<StudentInfo, Integer>() {
-                    @Override
-                    public void updateItem(Integer item, boolean empty) {
-                        super.updateItem(item, empty);
-                        setText(empty ? null : getString());
-                        setGraphic(null);
-                    }
-
-                    private String getString() {
-                        return getItem() == null ? "" : getItem().toString();
-                    }
-                };
-
-                cell.addEventFilter(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent event) {
-                        if (event.getClickCount() > 1) {
-                            StudentInfo studentInfo =(StudentInfo) cell.getTableRow().getItem();
-                            DescriptionController descriptionController =
-                                    new DescriptionController();
-                            descriptionController.show(studentInfo);
-                        }
-                    }
-                });
-                return cell;  //To change body of implemented methods use File | Settings | File Templates.
-            }
-        };
-        // a cell factory for all String valued columns
-        Callback<TableColumn<StudentInfo, String>, TableCell<StudentInfo, String>> stringCellFactory =
-                new Callback<TableColumn<StudentInfo, String>, TableCell<StudentInfo, String>>() {
-                    @Override
-                    public TableCell<StudentInfo, String> call(TableColumn<StudentInfo, String> studentInfoStringTableColumn) {
-                        final TableCell<StudentInfo, String> cell = new TableCell<StudentInfo, String>() {
-                            @Override
-                            public void updateItem(String item, boolean empty) {
-                                super.updateItem(item, empty);
-                                setText(empty ? null : getString());
-                                setGraphic(null);
-                            }
-
-                            private String getString() {
-                                return getItem() == null ? "" : getItem().toString();
-                            }
-                        };
-
-                        cell.addEventFilter(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
-                            @Override
-                            public void handle(MouseEvent event) {
-                                if (event.getClickCount() > 1) {
-                                StudentInfo studentInfo =(StudentInfo) cell.getTableRow().getItem();
-                                    DescriptionController descriptionController =
-                                            new DescriptionController();
-                                    descriptionController.show(studentInfo);
-                                }
-                            }
-                        });
-                        return cell;  //To change body of implemented methods use File | Settings | File Templates.
-                        }
-                    };    */
         idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
         nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
         roomColumn.setCellValueFactory(new PropertyValueFactory<>("room"));
@@ -161,10 +96,6 @@ public class StudentController implements Initializable {
                     }
                 }
         );
-        //idColumn.setCellFactory(integerCellFactory);
-        //nameColumn.setCellFactory(stringCellFactory);
-        //roomColumn.setCellFactory(integerCellFactory);
-        //contactColumn.setCellFactory(stringCellFactory);
         String st = (String) contactColumn.getCellData(4);
         if (st == null) ;
         contactColumn.setUserData("Not Available");

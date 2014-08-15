@@ -18,7 +18,6 @@ import laplab.hallmanagement.Month;
 import laplab.hallmanagement.database.DepartmentTable;
 import laplab.hallmanagement.pdf.PDFMaker;
 import laplab.lib.tablecreator.CommonCharacters;
-import laplab.student.StudentInfo;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -45,6 +44,12 @@ public class FinecreditController_V2 implements Initializable {
     public TableView creditTable;
     public TextField studentID;
 
+    private int startMonth;
+    private int endMonth;
+    private int startYear;
+    private int endYear;
+
+
     ObservableList<StudentDiningInfo> list;
     public static final String FINE = "fine";
     public static final String CREDIT = "credit";
@@ -56,12 +61,12 @@ public class FinecreditController_V2 implements Initializable {
 
         monthComboboxEnd.setItems(monthList);
         monthComboboxStart.setItems(monthList);
-
         monthComboboxStart.setValue(monthList.get(0));
         monthComboboxEnd.setValue(monthList.get(Month.getCurrentMonth()));
-        //setupTable();
+        setInitialMonthYearValues();
+
         DiningDatafromDatabase diningDatafromDatabase = new DiningDatafromDatabase();
-        list = diningDatafromDatabase.getAllDiningData();
+        list = diningDatafromDatabase.getAllDiningData(startMonth,startYear,endMonth,endYear);
         if (list.size() == 0)   {
             Dialogs.showInformationDialog(
                     new Stage(),
@@ -89,14 +94,24 @@ public class FinecreditController_V2 implements Initializable {
                                 StudentDiningInfo studentDiningInfo = row.getItem();
                                 if (what_to_show.equals(AMOUNT)) {
                                     AmountDetail amountDetail = new AmountDetail();
-                                    amountDetail.show(String.valueOf(studentDiningInfo.getStudentID()));
+                                    amountDetail.show(
+                                            String.valueOf(studentDiningInfo.getStudentID()),
+                                            startMonth, startYear,
+                                            endMonth,endYear
+                                            );
                                 } else if (what_to_show.equals(CREDIT)) {
                                     CreditDetail creditDetail = new CreditDetail();
-                                    creditDetail.show(String.valueOf(studentDiningInfo.getStudentID()));
+                                    creditDetail.show(String.valueOf(studentDiningInfo.getStudentID()),
+                                            startMonth, startYear,
+                                            endMonth,endYear
+                                    );
                                 } else {
                                     //TODO fine table should be implemented.
                                     AmountDetail amountDetail = new AmountDetail();
-                                    amountDetail.show(String.valueOf(studentDiningInfo.getStudentID()));
+                                    amountDetail.show(String.valueOf(studentDiningInfo.getStudentID()),
+                                            startMonth, startYear,
+                                            endMonth,endYear
+                                    );
                                 }
 
                             }
@@ -234,7 +249,10 @@ public class FinecreditController_V2 implements Initializable {
                         diningDatafromDatabase.startYear = Integer.parseInt(yearStart);
                         diningDatafromDatabase.endMonth = Month.getMonthIndex(monthEnd);
                         diningDatafromDatabase.endYear = Integer.parseInt(yearEnd);
-
+                        this.startMonth =  diningDatafromDatabase.startMonth;
+                        this.startYear = diningDatafromDatabase.startYear;
+                        this.endMonth = diningDatafromDatabase.endMonth;
+                        this.endYear = diningDatafromDatabase.endYear;
                         String ids = studentID.getText();
                         if (ids != null) {
                             if (!ids.isEmpty()) {
@@ -326,5 +344,21 @@ public class FinecreditController_V2 implements Initializable {
         populateDataInTable(list, amountTable, AMOUNT);
         populateDataInTable(list, fineTable, FINE);
         populateDataInTable(list, creditTable, CREDIT);
+    }
+
+    private void setInitialMonthYearValues()    {
+        int nowMonth = Month.getCurrentMonth();
+        int nowYear = Month.getCurrentYear();
+        int monthCount = nowMonth + 1;
+        if (monthCount < 6) {
+            startMonth = 12 - (6 - monthCount);
+            startYear = nowYear - 1;
+        } else {
+            startMonth = nowMonth - 6;
+            startYear = nowYear;
+        }
+
+        endMonth = nowMonth;
+        endYear = nowYear;
     }
 }

@@ -1,10 +1,12 @@
 package sample;
 
+import javafx.beans.binding.Bindings;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
@@ -16,6 +18,7 @@ import laplab.hallmanagement.Month;
 import laplab.hallmanagement.database.DepartmentTable;
 import laplab.hallmanagement.pdf.PDFMaker;
 import laplab.lib.tablecreator.CommonCharacters;
+import laplab.student.StudentInfo;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -56,21 +59,62 @@ public class FinecreditController_V2 implements Initializable {
 
         monthComboboxStart.setValue(monthList.get(0));
         monthComboboxEnd.setValue(monthList.get(Month.getCurrentMonth()));
+        //setupTable();
         DiningDatafromDatabase diningDatafromDatabase = new DiningDatafromDatabase();
         list = diningDatafromDatabase.getAllDiningData();
-        populateDataInTable(list,amountTable,AMOUNT);
-        populateDataInTable(list,fineTable,FINE);
-        populateDataInTable(list,creditTable,CREDIT);
-    }
-
-    private void populateDataInTable(ObservableList<StudentDiningInfo> studentDiningInfos,
-                                     TableView tableView, String what_to_show) {
-        if (studentDiningInfos.size() == 0) {
+        if (list.size() == 0)   {
             Dialogs.showInformationDialog(
                     new Stage(),
                     "No data Found \n you might check your query",
                     "Warning",
                     "Hall Management");
+            return;
+        }
+        populateDataInTable(list, amountTable, AMOUNT);
+        populateDataInTable(list, fineTable, FINE);
+        populateDataInTable(list, creditTable, CREDIT);
+    }
+
+    private void setupTableRowMenus(TableView tableView, final String what_to_show) {
+        tableView.setRowFactory(
+                new Callback<TableView<StudentDiningInfo>, TableRow<StudentDiningInfo>>() {
+                    @Override
+                    public TableRow<StudentDiningInfo> call(TableView<StudentDiningInfo> tableView) {
+                        final TableRow<StudentDiningInfo> row = new TableRow<>();
+                        final ContextMenu rowMenu = new ContextMenu();
+                        MenuItem detailAndEdit = new MenuItem("Detail");
+                        detailAndEdit.setOnAction(new EventHandler<ActionEvent>() {
+                            @Override
+                            public void handle(ActionEvent actionEvent) {
+                                StudentDiningInfo studentDiningInfo = row.getItem();
+                                if (what_to_show.equals(AMOUNT)) {
+                                    AmountDetail amountDetail = new AmountDetail();
+                                    amountDetail.show(String.valueOf(studentDiningInfo.getStudentID()));
+                                } else if (what_to_show.equals(CREDIT)) {
+                                    CreditDetail creditDetail = new CreditDetail();
+                                    creditDetail.show(String.valueOf(studentDiningInfo.getStudentID()));
+                                } else {
+                                    //TODO fine table should be implemented.
+                                    AmountDetail amountDetail = new AmountDetail();
+                                    amountDetail.show(String.valueOf(studentDiningInfo.getStudentID()));
+                                }
+
+                            }
+                        });
+                        rowMenu.getItems().add(detailAndEdit);
+                        row.contextMenuProperty().bind(
+                                Bindings.when(Bindings.isNotNull(row.itemProperty()))
+                                        .then(rowMenu)
+                                        .otherwise((ContextMenu) null));
+                        return row;
+                    }
+                }
+        );
+    }
+
+    private void populateDataInTable(ObservableList<StudentDiningInfo> studentDiningInfos,
+                                     TableView tableView, String what_to_show) {
+        if (studentDiningInfos.size() == 0) {
             return;
         }
         StudentDiningInfo sample = studentDiningInfos.get(0);
@@ -90,8 +134,8 @@ public class FinecreditController_V2 implements Initializable {
             tableView.getColumns().add(tableColumn);
             i++;
         }
-        addTotalColumn(what_to_show,tableView);
-
+        addTotalColumn(what_to_show, tableView);
+        setupTableRowMenus(tableView, what_to_show);
     }
 
     private void addIDColumn(TableView tableView) {
@@ -105,7 +149,7 @@ public class FinecreditController_V2 implements Initializable {
         tableView.getColumns().add(tableColumn);
     }
 
-    private void addTotalColumn(final String type,TableView tableView) {
+    private void addTotalColumn(final String type, TableView tableView) {
         TableColumn tableColumn = new TableColumn("TOTAL");
         tableColumn.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<StudentDiningInfo, String>, ObservableValue<String>>() {
             @Override
@@ -168,7 +212,7 @@ public class FinecreditController_V2 implements Initializable {
         return studentDinningList;
     }
 
-    private static void showYearMonthErrorDialog()  {
+    private static void showYearMonthErrorDialog() {
         Dialogs.showErrorDialog(
                 new Stage(),
                 "Error in Query \n you should provide both End and Start Month",
@@ -224,11 +268,11 @@ public class FinecreditController_V2 implements Initializable {
                                 int _deptID;
                                 if (_departments.length == 0) {
                                     _deptID = DepartmentTable.getDeptID(dept);
-                                    if (_deptID == -1)  {
+                                    if (_deptID == -1) {
                                         Dialogs.showErrorDialog(
                                                 new Stage(),
                                                 "Please Check Department Names \n\n" +
-                                                        "\'"+dept+"\' is not a valid Department Name",
+                                                        "\'" + dept + "\' is not a valid Department Name",
                                                 "Error in Query",
                                                 "Hall Management"
                                         );
@@ -238,11 +282,11 @@ public class FinecreditController_V2 implements Initializable {
                                 } else {
                                     for (int i = 0; i < _departments.length; i++) {
                                         _deptID = DepartmentTable.getDeptID(_departments[i]);
-                                        if (_deptID == -1)  {
+                                        if (_deptID == -1) {
                                             Dialogs.showErrorDialog(
                                                     new Stage(),
                                                     "Please Check Department Names \n\n" +
-                                                            "\'"+_departments[i]+"\' is not a valid  Name",
+                                                            "\'" + _departments[i] + "\' is not a valid  Name",
                                                     "Error in Query",
                                                     "Hall Management"
                                             );
@@ -271,8 +315,16 @@ public class FinecreditController_V2 implements Initializable {
             return;
         }
         list = diningDatafromDatabase.getCustomizedDiningData();
-            populateDataInTable(list,amountTable,AMOUNT);
-            populateDataInTable(list,fineTable,FINE);
-            populateDataInTable(list,creditTable,CREDIT);
+        if (list.size() == 0)   {
+            Dialogs.showInformationDialog(
+                    new Stage(),
+                    "No data Found \n you might check your query",
+                    "Warning",
+                    "Hall Management");
+            return;
         }
+        populateDataInTable(list, amountTable, AMOUNT);
+        populateDataInTable(list, fineTable, FINE);
+        populateDataInTable(list, creditTable, CREDIT);
     }
+}

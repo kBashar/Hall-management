@@ -33,9 +33,6 @@ public class BaseController implements Initializable {
     public Button dataInputButton;
     @FXML
     private AnchorPane anchorPan;
-
-    @FXML
-    private Button b;
     private AnchorPane a;
     @Override
     public void initialize(URL url, ResourceBundle rb) {

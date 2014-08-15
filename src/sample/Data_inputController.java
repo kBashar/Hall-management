@@ -13,7 +13,10 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Dialogs;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+import laplab.hallmanagement.Config;
 import laplab.hallmanagement.Credit.CreditUpdater;
 import laplab.hallmanagement.Month;
 import laplab.hallmanagement.database.DataBaseConnection;
@@ -37,13 +40,14 @@ public class Data_inputController implements Initializable {
     public TextField creditDay;
     public TextField creditYear;
     public ComboBox creditMonth;
+    ObservableList<String> monthList;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        ObservableList<String> monthList = Month.getMonthList();
+        monthList = Month.getMonthList();
         dinningBillMonth.setItems(monthList);
         dinningBillMonth.setValue(monthList.get(Month.getCurrentMonth()));
         dinningBillYear.setText(String.valueOf(Month.getCurrentYear()));
@@ -87,16 +91,33 @@ public class Data_inputController implements Initializable {
                                         Month.getMonthIndex(month)));
                         int check = helper.insertIntoDataBase(DataBaseConstant.DINING_INFO_TABLE_NAME, map);
                         if (check > 0) {
-                            System.out.println("Dining info input done");
+                            Dialogs.showInformationDialog(
+                                    new Stage(),
+                                    "Dining info input done",
+                                    Config.SUCCESS_CONFIRMATION,
+                                    Config.APP_NAME
+                            );
+                            resetDinningFields();
                         }
                     }
 
                 } else {
-                    System.out.println("You should Enter Voucher_ID and Amount Per Student");
+                    Dialogs.showErrorDialog(
+                            new Stage(),
+                            "You should Enter Voucher_ID and Amount Per Student",
+                            Config.INPUT_WRONG,
+                            Config.APP_NAME
+                    );
+                    return;
                 }
 
             } else {
-                System.out.println("Please fill all the Field");
+                Dialogs.showErrorDialog(
+                        new Stage(),
+                        "Please fill all the field",
+                        Config.INPUT_WRONG,
+                        Config.APP_NAME
+                );
                 return;
             }
 
@@ -105,25 +126,56 @@ public class Data_inputController implements Initializable {
         }
     }
 
+    private void resetDinningFields() {
+        dinningBillMonth.setValue(monthList.get(Month.getCurrentMonth()));
+        dinningBillYear.setText(String.valueOf(Month.getCurrentYear()));
+        dinningBillStudentID.clear();
+        dinningBillVoucher.clear();
+        dinningBillAmount.clear();
+    }
+
     public void creditInputButtonClicked() {
         String studentId = creditStudentID.getText();
         String creditday = creditDay.getText();
-        String year= creditYear.getText();
-        String month=(String) creditMonth.getValue();
+        String year = creditYear.getText();
+        String month = (String) creditMonth.getValue();
 
-        if (studentId!=null && creditday!=null && year!=null && month!=null)    {
+        if (studentId != null && creditday != null && year != null && month != null) {
             int check = CreditUpdater.updateCreditDayCount(studentId,
-                    String.valueOf(Month.getMonthID(Integer.parseInt(year),Month.getMonthIndex(month))),
+                    String.valueOf(Month.getMonthID(Integer.parseInt(year), Month.getMonthIndex(month))),
                     Integer.parseInt(creditday));
-            if (check>0)    {
-                System.out.println("Updated");
-            } else if (check==-2){
-                System.out.println("this Student yet didn't pay for Dining");
-            }  else {
-                System.out.println("Somthing is wrong");
+            if (check > 0) {
+                Dialogs.showInformationDialog(
+                        new Stage(),
+                        "Credit info input done",
+                        Config.SUCCESS_CONFIRMATION,
+                        Config.APP_NAME
+                );
+                resetCreditFields();
+            } else if (check == -2) {
+                Dialogs.showErrorDialog(
+                        new Stage(),
+                        "this Student yet didn't pay for Dining",
+                        Config.INPUT_WRONG,
+                        Config.APP_NAME
+                );
+            } else {
+                Dialogs.showErrorDialog(
+                        new Stage(),
+                        "Something went wrong\n Report Developer",
+                        Config.UNKNOWN_WRONG,
+                        Config.APP_NAME
+                );
             }
 
         }
+    }
+
+    private void resetCreditFields() {
+        creditStudentID.clear();
+        creditDay.clear();
+        creditMonth.setValue(monthList.get(Month.getCurrentMonth()));
+        creditYear.setText(String.valueOf(Month.getCurrentYear()));
     }
 
 }

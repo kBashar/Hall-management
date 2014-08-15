@@ -34,7 +34,7 @@ public class DiningDatafromDatabase {
     public int startMonth = -1;
     public int endYear = -1;
     public int endMonth = -1;
-    //private int totalMonth = -1;
+    private int totalMonth = -1;
     public ArrayList<String> departments = new ArrayList<>();
     public ArrayList<String> batches = new ArrayList<>();
     public ArrayList<String> ids = new ArrayList<>();
@@ -43,13 +43,14 @@ public class DiningDatafromDatabase {
 
     }
 
+
     public ObservableList<StudentDiningInfo> getAllDiningData(int startMonth,
                                                               int startYear,
                                                               int endMonth,
                                                               int endYear) {
+       this.startMonth =startMonth;
+            this.startYear = startYear;
 
-        this.startMonth = startMonth;
-        this.startYear = startYear;
         this.endMonth = endMonth;
         this.endYear = endYear;
         return getCustomizedDiningData();
@@ -113,6 +114,7 @@ public class DiningDatafromDatabase {
         } else {
 
             System.out.println(mainQueryString);
+            log.warning(mainQueryString);
             queryString = mainQueryString;
         }
         return getStudentsDiningInfoList(

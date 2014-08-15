@@ -8,10 +8,12 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Menu;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.scene.control.Tooltip;
 
 import java.io.IOException;
 import java.net.URL;
@@ -35,7 +37,6 @@ public class BaseController implements Initializable {
     @FXML
     private Button b;
     private AnchorPane a;
-
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         /*Image studentImage = new Image(getClass().getResourceAsStream("/sample/start_students.png"));
@@ -44,6 +45,9 @@ public class BaseController implements Initializable {
         studentButton.setGraphic(new ImageView(studentImage));
         finecreditsButton.setGraphic(new ImageView(amountImage));
         dataInputButton.setGraphic(new ImageView(dataInputImage));*/
+        studentButton.setTooltip(new Tooltip("STUDENT INFORMATION"));
+        finecreditsButton.setTooltip(new Tooltip("FINE & CREDIT"));
+        dataInputButton.setTooltip(new Tooltip("INPUT AREA"));
         Node r = null;
         try {
             r = (Node) FXMLLoader.load(getClass().getResource("welcome_screen.fxml"));

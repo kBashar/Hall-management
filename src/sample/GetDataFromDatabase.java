@@ -64,6 +64,7 @@ public class GetDataFromDatabase {
                 studentInfo.setRoom(resultSet.getInt(StudentInfoTable.ROOM_COLUMN));
                 studentInfoObservableList.add(studentInfo);
             }
+            resultSet.close();
             System.out.println(count);
         } catch (SQLException e) {
             e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.

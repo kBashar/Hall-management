@@ -67,7 +67,7 @@ public class Fine_creditController implements Initializable {
         monthComboboxStart.setValue(monthList.get(0));
         monthComboboxEnd.setValue(monthList.get(Month.getCurrentMonth()));
         DiningDatafromDatabase diningDatafromDatabase = new DiningDatafromDatabase();
-        list = diningDatafromDatabase.getAllDiningData();
+        list = diningDatafromDatabase.getAllDiningData(1,1,1,1);
         populateDataInTable(list, "amount");
     }
 
@@ -237,7 +237,6 @@ public class Fine_creditController implements Initializable {
             String columnName = Month.getMonthName(monthlyInfo.getMonth())
                     + "'" +
                     String.valueOf(monthlyInfo.getYear() % 2000);
-            System.out.println(columnName);
             TableColumn tableColumn = new TableColumn(columnName);
             tableColumn.setCellValueFactory(new CustomizedCallback(i, what_to_show));
             tableView.getColumns().add(tableColumn);

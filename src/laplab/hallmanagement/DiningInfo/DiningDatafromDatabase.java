@@ -44,21 +44,15 @@ public class DiningDatafromDatabase {
     }
 
 
-    public ObservableList<StudentDiningInfo> getAllDiningData() {
-        int nowMonth = Month.getCurrentMonth();
-        int nowYear = Month.getCurrentYear();
-        int monthCount = nowMonth + 1;
-        if (monthCount < 6) {
-            startMonth = 12 - (6 - monthCount);
-            startYear = nowYear - 1;
-        } else {
-            startMonth = nowMonth - 6;
-            startYear = nowYear;
-        }
+    public ObservableList<StudentDiningInfo> getAllDiningData(int startMonth,
+                                                              int startYear,
+                                                              int endMonth,
+                                                              int endYear) {
+       this.startMonth =startMonth;
+            this.startYear = startYear;
 
-        endMonth = nowMonth;
-        endYear = nowYear;
-        totalMonth = 6;
+        this.endMonth = endMonth;
+        this.endYear = endYear;
         return getCustomizedDiningData();
     }
 

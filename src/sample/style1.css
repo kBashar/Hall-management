@@ -1,0 +1,13 @@
+#menu1 , #menu2 , #menu3 {-fx-background-color: d2b48c;}
+
+.menubar
+{ 
+	-fx-background-color: #eee8aa;
+	-fx-background-radius:10;
+	-fx-padding: 11;
+}
+
+.menu
+{
+	-fx-padding: 7 12 6 12;
+}

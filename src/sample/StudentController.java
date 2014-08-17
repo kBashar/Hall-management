@@ -18,6 +18,7 @@ import laplab.lib.databasehelper.QueryHelper;
 import laplab.lib.tablecreator.CommonCharacters;
 import laplab.student.StudentInfo;
 
+import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Logger;
@@ -88,6 +89,9 @@ public class StudentController implements Initializable {
                                 DataBaseHelper dataBaseHelper=new DataBaseHelper(DataBaseConnection.getConnection());
                                 dataBaseHelper.deleteFromDatabase(studentInfo.getId());
                                 studentInfoObservableList.removeAll(studentInfo);
+                                File file=new File("image/"+studentInfo.getId()+".jpg");
+                                if(file.exists())
+                                    file.delete();
                             }
                         });
                         rowMenu.getItems().addAll(delete,detailAndEdit);

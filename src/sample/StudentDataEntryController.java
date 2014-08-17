@@ -11,7 +11,10 @@ import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Dialogs;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+import laplab.hallmanagement.Config;
 import laplab.hallmanagement.database.DataBaseConnection;
 import laplab.hallmanagement.database.DataBaseConstant;
 import laplab.hallmanagement.database.DataInputer;
@@ -47,27 +50,27 @@ public class StudentDataEntryController implements Initializable {
 
         String data = id.getText();
         if (data == null || data.isEmpty()) {
-            System.out.println("Please Enter ID");
+            askForInput();
             return;
         }
         studentInfo.setId(Integer.parseInt(data));
         data = name.getText();
         if (data == null || data.isEmpty()) {
-            System.out.println("Please Enter Name");
+            askForInput();
             return;
         }
         studentInfo.setName(data);
 
         data = room.getText();
         if (data == null || data.isEmpty()) {
-            System.out.println("Please Enter Room");
+            askForInput();
             return;
         }
         studentInfo.setRoom(Integer.parseInt(data));
 
         data = contact.getText();
         if (data == null || data.isEmpty()) {
-            System.out.println("Enter Contact Please");
+            askForInput();
             return;
         }
         studentInfo.setContact(data);
@@ -83,20 +86,52 @@ public class StudentDataEntryController implements Initializable {
                     DataBaseConstant.STUDENT_INFO_TABLE_NAME,
                     DataInputer.StudentInsert(studentInfo)
             );
-            if (check>0){
-                id.clear();
-                name.clear();
-                room.clear();
-                contact.clear();
-                parent.clear();
-                parent_contact.clear();
-                blood_group.clear();
-
+            if (check > 0) {
+                Dialogs.showInformationDialog(
+                        new Stage(),
+                        id.getText() + " Has been added",
+                        Config.SUCCESS_CONFIRMATION,
+                        Config.APP_NAME
+                );
+                resetEverything();
+            } else if (check == -1) {
+                Dialogs.showErrorDialog(
+                        new Stage(),
+                        id.getText() + " Already Exists\n",
+                        Config.INPUT_WRONG,
+                        Config.APP_NAME
+                );
+            } else if (check == -2) {
+                Dialogs.showErrorDialog(
+                        new Stage(),
+                        "Batch and/or Department doesn't Exist of this Student\n" +
+                                "Please add batch,department first",
+                        Config.INPUT_WRONG,
+                        Config.APP_NAME
+                );
             }
 
         }
     }
 
+    private void resetEverything() {
+        id.clear();
+        name.clear();
+        room.clear();
+        contact.clear();
+        parent.clear();
+        parent_contact.clear();
+        blood_group.clear();
+    }
+
+    private void askForInput() {
+        Dialogs.showWarningDialog(
+                new Stage(),
+                "ID,Name,Room,Contact must be filled",
+                Config.INPUT_WRONG,
+                Config.APP_NAME
+        );
+    }
 
     public void exitButtonClicked(ActionEvent actionEvent) {
 

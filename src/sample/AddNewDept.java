@@ -32,7 +32,7 @@ public class AddNewDept {
             if (check > 0) {
                 Dialogs.showInformationDialog(
                         new Stage(),
-                        deptName + "Has been added",
+                        deptName + " Has been added",
                         Config.SUCCESS_CONFIRMATION,
                         Config.APP_NAME
                 );
@@ -40,7 +40,7 @@ public class AddNewDept {
             }  else if (check == -1)    {
                 Dialogs.showErrorDialog(
                         new Stage(),
-                        deptName + "Already Exists",
+                        deptName + " Already Exists",
                         Config.INPUT_WRONG,
                         Config.APP_NAME
                 );

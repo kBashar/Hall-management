@@ -36,7 +36,7 @@ public class AddNewBatch {
                 System.out.println("Batch Added " + batchID);
                 Dialogs.showInformationDialog(
                         new Stage(),
-                        batchName + "Has been added",
+                        batchName + " Has been added",
                         Config.SUCCESS_CONFIRMATION,
                         Config.APP_NAME
                 );
@@ -44,7 +44,7 @@ public class AddNewBatch {
             }  else if (check == -1)    {
                 Dialogs.showErrorDialog(
                         new Stage(),
-                        batchName + "Already Exists",
+                        batchName + " Already Exists",
                         Config.INPUT_WRONG,
                         Config.APP_NAME
                 );

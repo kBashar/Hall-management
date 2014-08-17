@@ -2,7 +2,10 @@ package sample;
 
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
+import javafx.scene.control.Dialogs;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+import laplab.hallmanagement.Config;
 import laplab.hallmanagement.database.DataBaseConnection;
 import laplab.hallmanagement.database.DataBaseConstant;
 import laplab.hallmanagement.database.DataInputer;
@@ -31,10 +34,28 @@ public class AddNewBatch {
             );
             if (check > 0) {
                 System.out.println("Batch Added " + batchID);
+                Dialogs.showInformationDialog(
+                        new Stage(),
+                        batchName + "Has been added",
+                        Config.SUCCESS_CONFIRMATION,
+                        Config.APP_NAME
+                );
+                resetEverything();
+            }  else if (check == -1)    {
+                Dialogs.showErrorDialog(
+                        new Stage(),
+                        batchName + "Already Exists",
+                        Config.INPUT_WRONG,
+                        Config.APP_NAME
+                );
             }
-            resetEverything();
         } else {
-            System.out.println("Please Fill All Fields");
+            Dialogs.showWarningDialog(
+                    new Stage(),
+                    "Please fill all the field",
+                    Config.INPUT_WRONG,
+                    Config.APP_NAME
+            );
         }
 
 

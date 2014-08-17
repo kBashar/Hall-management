@@ -1,8 +1,11 @@
-#menu1 , #menu2 , #menu3 {-fx-background-color: d2b48c;}
+#menu1 , #menu2 , #menu3 
+{
+	-fx-background-color: sandybrown;
+}
 
 .menubar
 { 
-	-fx-background-color: #eee8aa;
+	-fx-background-color: saddlebrown;
 	-fx-background-radius:10;
 	-fx-padding: 11;
 }

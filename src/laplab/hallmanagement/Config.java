@@ -10,13 +10,8 @@ import java.util.prefs.Preferences;
  * To change this template use File | Settings | File Templates.
  */
 public class Config {
-    private Preferences preferences;
-
-    public void checkEveryThing() {
-
-    }
-
-    public void setPreferences() {
-
-    }
+    public static final String APP_NAME = "HALL MANAGEMENT";
+    public static final String SUCCESS_CONFIRMATION = "Congrats";
+    public static final String INPUT_WRONG = "Wrong Input";
+    public static final String UNKNOWN_WRONG = "Unknown Error";
 }

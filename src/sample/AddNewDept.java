@@ -1,7 +1,10 @@
 package sample;
 
 import javafx.event.ActionEvent;
+import javafx.scene.control.Dialogs;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+import laplab.hallmanagement.Config;
 import laplab.hallmanagement.database.DataBaseConnection;
 import laplab.hallmanagement.database.DataBaseConstant;
 import laplab.hallmanagement.database.DataInputer;
@@ -27,11 +30,28 @@ public class AddNewDept {
                     DataInputer.DepartmentInsert(newDptID, newDptName)
             );
             if (check > 0) {
-                System.out.println("Department Added " + newDptName);
+                Dialogs.showInformationDialog(
+                        new Stage(),
+                        deptName + " Has been added",
+                        Config.SUCCESS_CONFIRMATION,
+                        Config.APP_NAME
+                );
+                resetEveryThing();
+            }  else if (check == -1)    {
+                Dialogs.showErrorDialog(
+                        new Stage(),
+                        deptName + " Already Exists",
+                        Config.INPUT_WRONG,
+                        Config.APP_NAME
+                );
             }
-            resetEveryThing();
         } else {
-            System.out.println("Please Fill All Fields");
+            Dialogs.showWarningDialog(
+                    new Stage(),
+                    "Please fill all the field",
+                    Config.INPUT_WRONG,
+                    Config.APP_NAME
+            );
         }
     }
 

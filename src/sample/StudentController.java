@@ -57,8 +57,6 @@ public class StudentController implements Initializable {
     }
 
     public void setupTable() {
-        studentInfoObservableList = new GetDataFromDatabase().printData();
-        tableView.setItems(studentInfoObservableList);
         tableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
         idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
         nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
@@ -89,7 +87,7 @@ public class StudentController implements Initializable {
                                 StudentInfo studentInfo =row.getItem();
                                 DataBaseHelper dataBaseHelper=new DataBaseHelper(DataBaseConnection.getConnection());
                                 dataBaseHelper.deleteFromDatabase(studentInfo.getId());
-                                setupTable();
+                                studentInfoObservableList.removeAll(studentInfo);
                             }
                         });
                         rowMenu.getItems().addAll(delete,detailAndEdit);

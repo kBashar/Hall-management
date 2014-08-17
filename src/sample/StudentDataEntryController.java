@@ -44,6 +44,8 @@ public class StudentDataEntryController implements Initializable {
 
     public Button image_browse;
     private StudentInfo studentInfo;
+    File file_source;
+    File file_distination;
     /**
      * Initializes the controller class.
      */
@@ -53,7 +55,7 @@ public class StudentDataEntryController implements Initializable {
     }
 
 
-    public void saveButttonClicked(ActionEvent actionEvent) {
+    public void saveButttonClicked(ActionEvent actionEvent) throws IOException {
         studentInfo = new StudentInfo();
 
         String data = id.getText();
@@ -103,6 +105,7 @@ public class StudentDataEntryController implements Initializable {
                 parent_contact.clear();
                 blood_group.clear();
                 browse_image.clear();
+                copyFile(file_source, file_distination);
             }
 
         }
@@ -121,14 +124,15 @@ public class StudentDataEntryController implements Initializable {
         FileChooser.ExtensionFilter extFilterPNG = new FileChooser.ExtensionFilter("PNG files (*.png)", "*.PNG");
         fileChooser.getExtensionFilters().addAll(extFilterJPG, extFilterPNG);
 
-        File file_source = fileChooser.showOpenDialog(null);
+        file_source = fileChooser.showOpenDialog(null);
         System.out.println(file_source.toString());
-        File file_distination=new File("image/"+id.getText()+".jpg");
-        browse_image.setText(file_source.toURI().toString());
-        System.out.println(file_distination.toString());
-        if(studentInfo.finalizeObject()) {
-            copyFile(file_source, file_distination);
-        }
+            file_distination=new File("image");
+            if(!file_distination.exists())
+                new File("image").mkdir();
+                file_distination = new File("image/" + id.getText() + ".jpg");
+                browse_image.setText(file_source.toURI().toString());
+                System.out.println(file_distination.toURI().toString());
+
     }
 
     public void copyFile(File sourceFile, File destFile) throws IOException {

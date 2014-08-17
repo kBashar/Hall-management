@@ -81,7 +81,7 @@ public class DataBaseHelper {
 
     }
 
-    public void deleteFromDatabase(int id){
+    public int deleteFromDatabase(int id){
         StringBuilder stringBuilder=new StringBuilder();
         stringBuilder.append(DELETE);
         stringBuilder.append(CommonCharacters.SPACE);
@@ -94,9 +94,8 @@ public class DataBaseHelper {
         stringBuilder.append(CommonCharacters.EQUAL_SIGN);
         stringBuilder.append(CommonCharacters.SPACE);
         stringBuilder.append(id);
+        return execute(stringBuilder.toString());
       /* NEED TO EDIT FOR DINNING TABLE
-
-        execute(stringBuilder.toString());
         System.out.println(stringBuilder.toString());
         stringBuilder=new StringBuilder();
         stringBuilder.append(DELETE);

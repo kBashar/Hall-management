@@ -43,7 +43,7 @@ public class StudentDataEntryController implements Initializable {
     public TextField browse_image;
 
     public Button image_browse;
-
+    private StudentInfo studentInfo;
     /**
      * Initializes the controller class.
      */
@@ -54,7 +54,7 @@ public class StudentDataEntryController implements Initializable {
 
 
     public void saveButttonClicked(ActionEvent actionEvent) {
-        StudentInfo studentInfo = new StudentInfo();
+        studentInfo = new StudentInfo();
 
         String data = id.getText();
         if (data == null || data.isEmpty()) {
@@ -102,7 +102,7 @@ public class StudentDataEntryController implements Initializable {
                 parent.clear();
                 parent_contact.clear();
                 blood_group.clear();
-
+                browse_image.clear();
             }
 
         }
@@ -126,7 +126,9 @@ public class StudentDataEntryController implements Initializable {
         File file_distination=new File("image/"+id.getText()+".jpg");
         browse_image.setText(file_source.toURI().toString());
         System.out.println(file_distination.toString());
-        copyFile(file_source,file_distination);
+        if(studentInfo.finalizeObject()) {
+            copyFile(file_source, file_distination);
+        }
     }
 
     public void copyFile(File sourceFile, File destFile) throws IOException {

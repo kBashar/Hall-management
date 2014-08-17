@@ -12,10 +12,8 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.util.Callback;
-import laplab.hallmanagement.database.DataBaseConnection;
-import laplab.hallmanagement.database.DataBaseConstant;
-import laplab.hallmanagement.database.DepartmentTable;
-import laplab.hallmanagement.database.StudentInfoTable;
+import laplab.hallmanagement.database.*;
+import laplab.lib.databasehelper.DataBaseHelper;
 import laplab.lib.databasehelper.QueryHelper;
 import laplab.lib.tablecreator.CommonCharacters;
 import laplab.student.StudentInfo;
@@ -59,6 +57,8 @@ public class StudentController implements Initializable {
     }
 
     public void setupTable() {
+        studentInfoObservableList = new GetDataFromDatabase().printData();
+        tableView.setItems(studentInfoObservableList);
         tableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
         idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
         nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
@@ -70,6 +70,7 @@ public class StudentController implements Initializable {
                     public TableRow<StudentInfo> call(TableView<StudentInfo> tableView) {
                         final TableRow<StudentInfo> row = new TableRow<>();
                         final ContextMenu rowMenu = new ContextMenu();
+                        StudentInfo studentInfo;
                         MenuItem detailAndEdit = new MenuItem("Detail");
                         detailAndEdit.setOnAction(new EventHandler<ActionEvent>() {
                             @Override
@@ -85,6 +86,10 @@ public class StudentController implements Initializable {
                             @Override
                             public void handle(ActionEvent actionEvent) {
                                 //To change body of implemented methods use File | Settings | File Templates.
+                                StudentInfo studentInfo =row.getItem();
+                                DataBaseHelper dataBaseHelper=new DataBaseHelper(DataBaseConnection.getConnection());
+                                dataBaseHelper.deleteFromDatabase(studentInfo.getId());
+                                setupTable();
                             }
                         });
                         rowMenu.getItems().addAll(delete,detailAndEdit);

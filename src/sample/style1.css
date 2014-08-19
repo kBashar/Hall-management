@@ -1,16 +1,23 @@
 #menu1 , #menu2 , #menu3 
 {
-	-fx-background-color: sandybrown;
+	-fx-background-color: #606060;
+	-fx-padding: 7 5 6 5;
+
 }
 
 .menubar
 { 
-	-fx-background-color: saddlebrown;
+	-fx-background-color: #404040;
 	-fx-background-radius:10;
 	-fx-padding: 11;
 }
 
 .menu
 {
-	-fx-padding: 7 12 6 12;
+}
+
+#separator
+{
+
+    -fx-effect: dropshadow( one-pass-box , black , 8 , 0.0 , 2 , 0 );
 }

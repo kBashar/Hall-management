@@ -100,17 +100,8 @@ public class StudentDataEntryController implements Initializable {
                     DataBaseConstant.STUDENT_INFO_TABLE_NAME,
                     DataInputer.StudentInsert(studentInfo)
             );
-            if (check > 0) {
-                id.clear();
-                name.clear();
-                room.clear();
-                contact.clear();
-                parent.clear();
-                parent_contact.clear();
-                blood_group.clear();
-                browse_image.clear();
-                copyFile(file_source, file_distination);
                 if (check > 0) {
+                    copyFile(file_source, file_distination);
                     Dialogs.showInformationDialog(
                             new Stage(),
                             id.getText() + " Has been added",
@@ -137,7 +128,6 @@ public class StudentDataEntryController implements Initializable {
 
             }
         }
-    }
 
     private void resetEverything() {
         id.clear();

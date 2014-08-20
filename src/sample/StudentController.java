@@ -88,7 +88,7 @@ public class StudentController implements Initializable {
                                 StudentInfo studentInfo =row.getItem();
                                 DataBaseHelper dataBaseHelper=new DataBaseHelper(DataBaseConnection.getConnection());
                                 dataBaseHelper.deleteFromDatabase(studentInfo.getId());
-                                studentInfoObservableList.removeAll(studentInfo);
+                                studentInfoObservableList.remove(studentInfo);
                                 File file=new File("image/"+studentInfo.getId()+".jpg");
                                 if(file.exists())
                                     file.delete();

@@ -21,9 +21,9 @@
                      </effect></Button>
             <Button fx:id="finecreditsButton" layoutX="94.0" mnemonicParsing="false" onAction="#finecreditsButtonClicked" prefHeight="74.0" prefWidth="87.0" styleClass="dinning_fine_credit_btn" stylesheets="/sample/style.css" />
             <Button fx:id="dataInputButton" layoutX="187.0" mnemonicParsing="false" onAction="#dataInputButtonClicked" prefHeight="74.0" prefWidth="87.0" styleClass="input_btn" stylesheets="/sample/style.css" />
-            <MenuBar layoutX="306.0" layoutY="-1.0" prefHeight="74.0" prefWidth="221.0" stylesheets="/sample/style.css" AnchorPane.leftAnchor="306.0" AnchorPane.rightAnchor="271.0">
+            <MenuBar id="menu" layoutX="332.0" layoutY="11.0" prefHeight="52.0" prefWidth="155.0" styleClass="menubar" stylesheets="/sample/style1.css" AnchorPane.leftAnchor="332.0">
               <menus>
-                <Menu fx:id="menu" mnemonicParsing="false" text="File">
+                <Menu id="menu1" fx:id="menu" mnemonicParsing="false" styleClass="menu" text="File">
                   <items>
                     <MenuItem fx:id="addNewStudent" mnemonicParsing="false" onAction="#addNewStudentCliked" text="Add New" />
                     <MenuItem fx:id="addNewBatch" mnemonicParsing="false" onAction="#addNewbatchMenuClicked" text="Add New Batch" />
@@ -32,13 +32,13 @@
                     <MenuItem fx:id="delete" mnemonicParsing="false" onAction="#deleteClicked" text="Delete" />
                   </items>
                 </Menu>
-                <Menu text="Settings">
+                <Menu id="menu2" mnemonicParsing="false" styleClass="menu" text="Settings">
                   <items>
                     <MenuItem fx:id="finecreditSettings" mnemonicParsing="false" onAction="#finecreditSettingsClicked" text="Fine Credit Settings" />
                     <MenuItem mnemonicParsing="false" text="Delete" />
                   </items>
                 </Menu>
-                <Menu mnemonicParsing="false" text="Help">
+                <Menu id="menu3" mnemonicParsing="false" styleClass="menu" text="Help">
                   <items>
                     <MenuItem mnemonicParsing="false" text="About" />
                   </items>

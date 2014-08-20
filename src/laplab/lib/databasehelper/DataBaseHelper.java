@@ -3,9 +3,11 @@ package laplab.lib.databasehelper;
 import laplab.hallmanagement.database.DataBaseConstant;
 import laplab.hallmanagement.database.StudentInfoTable;
 import laplab.lib.tablecreator.CommonCharacters;
+import org.hsqldb.HsqlException;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.sql.Statement;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -163,6 +165,16 @@ public class DataBaseHelper {
 
         try {
             return statement.executeUpdate(querryString);
+        } catch (SQLIntegrityConstraintViolationException e) {
+            String[] localizedErrorMessages = e.getLocalizedMessage().split(";");
+            String errorMessage = localizedErrorMessages[0];
+            if (errorMessage.equals("integrity constraint violation: unique constraint or index violation")) {
+                System.out.println("This batch or dept already Exists");
+                return -1;
+            }  else if (errorMessage.equals("integrity constraint violation: foreign key no parent"))  {
+                System.out.println("This Students batch or dept doesn't Exist");
+                return -2;
+            }
         } catch (SQLException e) {
             e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
         }

@@ -1,11 +1,14 @@
 package sample;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import laplab.hallmanagement.database.DataBaseConnection;
 import laplab.hallmanagement.database.DataBaseConstant;
@@ -13,6 +16,7 @@ import laplab.hallmanagement.database.StudentInfoTable;
 import laplab.lib.databasehelper.QueryHelper;
 import laplab.student.StudentInfo;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.ResultSet;
@@ -27,18 +31,27 @@ import java.util.ResourceBundle;
  * To change this template use File | Settings | File Templates.
  */
 public class DescriptionController implements Initializable {
+    @FXML
     public TextField id;
+    @FXML
     public TextField name;
+    @FXML
     public TextField room;
+    @FXML
     public TextField contact;
+    @FXML
     public TextField parent_contact;
+    @FXML
     public TextField blood_group;
+    @FXML
     public TextField imageUrl;
+    @FXML
     public TextField studentParent;
 
     private Parent parent;
     private Scene scene;
     private Stage stage;
+    public ImageView profileImage;
 
     StudentInfo student;
 
@@ -61,7 +74,11 @@ public class DescriptionController implements Initializable {
         room.setText(String.valueOf(student.getRoom()));
         name.setText(student.getName());
         setText(student.getContact(), contact);
-
+        File file=new File("image");
+        Image image=new Image(file.toURI().toString()+student.getId()+".jpg");
+        System.out.println("image found");
+        profileImage.setImage(image);
+       // profileImage.setStyle("-fx-background-position: CENTER;");
         stage = new Stage();
         stage.setTitle("Student Detail Info");
         stage.setScene(scene);

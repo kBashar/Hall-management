@@ -1,5 +1,7 @@
 package laplab.lib.databasehelper;
 
+import laplab.hallmanagement.database.DataBaseConstant;
+import laplab.hallmanagement.database.StudentInfoTable;
 import laplab.lib.tablecreator.CommonCharacters;
 import org.hsqldb.HsqlException;
 
@@ -25,8 +27,8 @@ public class DataBaseHelper {
     private static final String UPDATE = "UPDATE";
     private static final String VALUES = "values";
     private static final String SET = "set";
-
-
+    private static final String DELETE= "DELETE FROM";
+    private static final String WHERE= "WHERE";
     private Connection connection;
     Statement statement = null;
 
@@ -79,6 +81,37 @@ public class DataBaseHelper {
         System.out.println(stringBuilder.toString());
         return execute(stringBuilder.toString());
 
+    }
+
+    public int deleteFromDatabase(int id){
+        StringBuilder stringBuilder=new StringBuilder();
+        stringBuilder.append(DELETE);
+        stringBuilder.append(CommonCharacters.SPACE);
+        stringBuilder.append(DataBaseConstant.STUDENT_INFO_TABLE_NAME);
+        stringBuilder.append(CommonCharacters.SPACE);
+        stringBuilder.append(WHERE);
+        stringBuilder.append(CommonCharacters.SPACE);
+        stringBuilder.append(StudentInfoTable.ID_COLUMN);
+        stringBuilder.append(CommonCharacters.SPACE);
+        stringBuilder.append(CommonCharacters.EQUAL_SIGN);
+        stringBuilder.append(CommonCharacters.SPACE);
+        stringBuilder.append(id);
+        return execute(stringBuilder.toString());
+      /* NEED TO EDIT FOR DINNING TABLE
+        System.out.println(stringBuilder.toString());
+        stringBuilder=new StringBuilder();
+        stringBuilder.append(DELETE);
+        stringBuilder.append(CommonCharacters.SPACE);
+        stringBuilder.append(DataBaseConstant.DINING_INFO_TABLE_NAME);
+        stringBuilder.append(CommonCharacters.SPACE);
+        stringBuilder.append(WHERE);
+        stringBuilder.append(CommonCharacters.SPACE);
+        stringBuilder.append(StudentInfoTable.ID_COLUMN);
+        stringBuilder.append(CommonCharacters.SPACE);
+        stringBuilder.append(CommonCharacters.EQUAL_SIGN);
+        stringBuilder.append(CommonCharacters.SPACE);
+        stringBuilder.append(id);
+        execute(stringBuilder.toString());*/
     }
 
     public int UpdateDataBase(String tableName, HashMap map, HashMap selectionArgs) {

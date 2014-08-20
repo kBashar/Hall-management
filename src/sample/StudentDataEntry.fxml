@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="572.9999000000025" prefWidth="564.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="sample.StudentDataEntryController">
+<AnchorPane id="AnchorPane" prefHeight="572.9999000000025" prefWidth="564.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.StudentDataEntryController">
   <children>
     <VBox id="VBox" alignment="CENTER_LEFT" layoutX="120.0" layoutY="132.0" spacing="15.0">
       <children>
@@ -34,7 +34,7 @@
         <TextField fx:id="parent" prefHeight="32.0" prefWidth="200.0" promptText="Parent" text="" />
         <TextField fx:id="parent_contact" prefHeight="32.0" prefWidth="200.0" promptText="Parent Contact" text="" />
         <TextField fx:id="blood_group" prefHeight="32.0" prefWidth="200.0" promptText="Blood Group" text="" />
-        <TextField prefHeight="32.0" prefWidth="200.0" promptText="Image" text="" />
+        <TextField fx:id="browse_image" prefHeight="32.0" prefWidth="200.0" promptText="Image" text="" />
       </children>
     </VBox>
     <VBox id="VBox" alignment="CENTER" layoutX="268.0" layoutY="138.0" spacing="18.0">
@@ -62,7 +62,7 @@
     <Button fx:id="saveButton" layoutX="426.0" layoutY="455.0" mnemonicParsing="false" onAction="#saveButttonClicked" prefHeight="24.0" prefWidth="59.0" text="Save" />
     <AnchorPane id="AnchorPane" layoutX="491.0" layoutY="479.0" prefHeight="22.0">
       <children>
-        <Button layoutX="-5.0" layoutY="-78.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="68.0" text="Browse" />
+        <Button fx:id="image_browse" layoutX="-5.0" layoutY="-78.0" mnemonicParsing="false" onAction="#image_browseButtonClicked" prefHeight="32.0" prefWidth="68.0" text="Browse" />
       </children>
     </AnchorPane>
   </children>

@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="579.0" prefWidth="598.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="579.0" prefWidth="598.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
   <children>
     <VBox layoutX="209.0" layoutY="267.0" prefHeight="321.0" prefWidth="195.0">
       <children>
@@ -36,7 +36,11 @@
       </children>
     </VBox>
     <Button fx:id="saveButton" disable="true" layoutX="522.0" layoutY="535.0" mnemonicParsing="false" onAction="#saveButttonClicked" prefHeight="40.0" prefWidth="52.0" text="Save" />
-    <ImageView fx:id="profileImage" fitHeight="183.0" fitWidth="165.0" layoutX="210.0" layoutY="61.0" pickOnBounds="true" preserveRatio="true" />
+      <HBox alignment="CENTER" layoutX="221.0" layoutY="71.0">
+         <children>
+          <ImageView fx:id="profileImage" fitHeight="183.0" fitWidth="160.0" layoutX="221.0" layoutY="71.0" pickOnBounds="true" preserveRatio="true" />
+         </children>
+      </HBox>
     <Button fx:id="editButton" layoutX="522.0" layoutY="132.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="59.0" text="Edit" />
   </children>
 </AnchorPane>

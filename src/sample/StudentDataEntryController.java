@@ -137,6 +137,7 @@ public class StudentDataEntryController implements Initializable {
         parent.clear();
         parent_contact.clear();
         blood_group.clear();
+        browse_image.clear();
     }
 
     private void askForInput() {

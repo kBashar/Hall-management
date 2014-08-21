@@ -85,7 +85,7 @@ public class BaseController implements Initializable {
     public void studentButtonClicked(ActionEvent actionEvent) {
         Node r = null;
         try {
-            r = (Node) FXMLLoader.load(getClass().getResource("students.fxml"));
+            r = (Node) FXMLLoader.load(getClass().getResource("/sample/students.fxml"));
         } catch (IOException e) {
             e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
         }
@@ -120,7 +120,7 @@ public class BaseController implements Initializable {
         System.out.println(e);
         Node r = null;
         try {
-            r = (Node) FXMLLoader.load(getClass().getResource("Data_input_v2.fxml"));
+            r = (Node) FXMLLoader.load(getClass().getResource("data_input_v2.fxml"));
         } catch (IOException e1) {
             e1.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
         }
@@ -138,7 +138,7 @@ public class BaseController implements Initializable {
     public void addNewStudentCliked(ActionEvent actionEvent) {
         Parent root = null;
         try {
-            root = FXMLLoader.load(getClass().getResource("StudentDataEntry.fxml"));
+            root = FXMLLoader.load(getClass().getResource("/sample/StudentDataEntry.fxml"));
         } catch (IOException e) {
             e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
         }
@@ -179,5 +179,9 @@ public class BaseController implements Initializable {
         stage.setScene(scene);
         stage.setTitle("Fine Credit Settings");
         stage.show();
+    }
+
+    public void aboutClicked(ActionEvent actionEvent) {
+        new About().show();
     }
 }

@@ -1,46 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.web.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.text.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.effect.*?>
-<?import javafx.scene.control.*?>
 <?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.web.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="620.0" prefWidth="785.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-      <Separator id="separator" layoutX="392.0" layoutY="71.0" orientation="VERTICAL" prefHeight="412.0" prefWidth="42.0" stylesheets="/sample/style1.css" AnchorPane.bottomAnchor="117.0" AnchorPane.leftAnchor="392.0" AnchorPane.rightAnchor="366.0" AnchorPane.topAnchor="71.0" />
-      <ImageView fitHeight="343.0" fitWidth="277.0" layoutX="109.0" layoutY="108.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="169.0" AnchorPane.leftAnchor="109.0">
-         <effect>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="620.0" prefWidth="785.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
+  <children>
+    <AnchorPane id="AnchorPane" prefHeight="620.0" prefWidth="785.0" AnchorPane.bottomAnchor="6.06" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-6.06">
+      <children>
+        <ImageView fitHeight="343.0" fitWidth="277.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="200.0" AnchorPane.leftAnchor="52.0">
+          <effect>
             <DropShadow spread="0.3">
-               <input>
-                  <Glow />
-               </input>
+              <input>
+                <Glow />
+              </input>
             </DropShadow>
-         </effect>
-         <image>
+          </effect>
+          <image>
             <Image url="@shokh2.jpg" />
-         </image>
-         <viewport>
+          </image>
+          <viewport>
             <Rectangle2D />
-         </viewport>
-      </ImageView>
-      <Label layoutX="451.0" layoutY="75.0" prefHeight="38.0" prefWidth="219.0" text="Welcome !!" AnchorPane.rightAnchor="130.0" AnchorPane.topAnchor="75.0">
-         <font>
+          </viewport>
+        </ImageView>
+        <Label prefHeight="40.0" prefWidth="176.0" text="Welcome !!" AnchorPane.bottomAnchor="484.9" AnchorPane.rightAnchor="149.0" AnchorPane.topAnchor="95.1">
+          <font>
             <Font name="Lucida Calligraphy Italic" size="29.0" />
-         </font>
-      </Label>
-      <TextArea layoutX="451.0" layoutY="150.0" prefHeight="268.0" prefWidth="299.0" AnchorPane.bottomAnchor="182.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="150.0">
-         <effect>
-            <DropShadow />
-         </effect>
-      </TextArea>
-      <ImageView fitHeight="46.0" fitWidth="201.0" layoutX="127.0" layoutY="503.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="82.83000183105469">
-         <image>
+          </font>
+        </Label>
+        <ImageView fitHeight="46.0" fitWidth="201.0" layoutX="70.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="125.0">
+          <image>
             <Image url="@tarek.JPG" />
-         </image>
-      </ImageView>
-   </children>
+          </image>
+        </ImageView>
+        <Label prefHeight="37.0" prefWidth="262.0" text="Dining Management Software" AnchorPane.bottomAnchor="112.0" AnchorPane.rightAnchor="99.0" AnchorPane.topAnchor="471.0">
+          <font>
+            <Font name="Lucida Console" size="16.0" />
+          </font>
+        </Label>
+        <ImageView fitHeight="292.75" fitWidth="325.9926753875852" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="152.25" AnchorPane.rightAnchor="80.0" AnchorPane.topAnchor="175.0">
+          <image>
+            <Image url="@maskabari.PNG" />
+          </image>
+        </ImageView>
+      </children>
+    </AnchorPane>
+  </children>
 </AnchorPane>

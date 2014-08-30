@@ -48,7 +48,7 @@ public class AmountDetail {
             parent = (Parent) fxmlLoader.load();
             scene = new Scene(parent);
         } catch (IOException e) {
-            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            MakeLogger.printToLogger(getClass().toString(),e.toString());  //To change body of catch statement use File | Settings | File Templates.
         }
 
     }
@@ -91,7 +91,7 @@ public class AmountDetail {
             }
             return amounts;
         } catch (SQLException e) {
-            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            MakeLogger.printToLogger(getClass().toString(),e.toString());  //To change body of catch statement use File | Settings | File Templates.
             return null;
         }
     }

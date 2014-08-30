@@ -49,7 +49,7 @@ public class BaseController implements Initializable {
         try {
             r = (Node) FXMLLoader.load(getClass().getResource("welcome_screen.fxml"));
         } catch (IOException e) {
-            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            MakeLogger.printToLogger(getClass().toString(),e.toString());  //To change body of catch statement use File | Settings | File Templates.
         }
         a = (AnchorPane) r;
         a.autosize();
@@ -87,7 +87,7 @@ public class BaseController implements Initializable {
         try {
             r = (Node) FXMLLoader.load(getClass().getResource("/sample/students.fxml"));
         } catch (IOException e) {
-            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            MakeLogger.printToLogger(getClass().toString(),e.toString());  //To change body of catch statement use File | Settings | File Templates.
         }
         a = (AnchorPane) r;
         AnchorPane.setTopAnchor(a, 0.0);
@@ -103,7 +103,7 @@ public class BaseController implements Initializable {
         try {
             r = (Node) FXMLLoader.load(getClass().getResource("fine_credits.fxml"));
         } catch (IOException e) {
-            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            MakeLogger.printToLogger(getClass().toString(),e.toString());  //To change body of catch statement use File | Settings | File Templates.
         }
         a = (AnchorPane) r;
         AnchorPane.setTopAnchor(a, 0.0);
@@ -122,7 +122,7 @@ public class BaseController implements Initializable {
         try {
             r = (Node) FXMLLoader.load(getClass().getResource("data_input_v2.fxml"));
         } catch (IOException e1) {
-            e1.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            MakeLogger.printToLogger(getClass().toString(),e1.toString());  //To change body of catch statement use File | Settings | File Templates.
         }
         a = (AnchorPane) r;
         //a.resize(1000,1000);
@@ -140,7 +140,7 @@ public class BaseController implements Initializable {
         try {
             root = FXMLLoader.load(getClass().getResource("/sample/StudentDataEntry.fxml"));
         } catch (IOException e) {
-            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            MakeLogger.printToLogger(getClass().toString(),e.toString());  //To change body of catch statement use File | Settings | File Templates.
         }
         Scene scene = new Scene(root);
         Stage stage = new Stage();

@@ -37,7 +37,7 @@ public class Main extends Application {
     }
 
     public static void main(String[] args) {
-        setUpLogger();
+        //setUpLogger();
         DataBaseConnection dataBaseConnection = new DataBaseConnection();
         if (!dataBaseConnection.checkForDatabase()) {
             System.out.println("Can't Find or create Database");

@@ -4,6 +4,7 @@ import laplab.hallmanagement.database.DataBaseConstant;
 import laplab.hallmanagement.database.StudentInfoTable;
 import laplab.lib.tablecreator.CommonCharacters;
 import org.hsqldb.HsqlException;
+import sample.MakeLogger;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -37,7 +38,7 @@ public class DataBaseHelper {
         try {
             statement = connection.createStatement();
         } catch (SQLException e) {
-            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            MakeLogger.printToLogger(getClass().toString(), e.toString());  //To change body of catch statement use File | Settings | File Templates.
         }
     }
 
@@ -176,7 +177,7 @@ public class DataBaseHelper {
                 return -2;
             }
         } catch (SQLException e) {
-            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            MakeLogger.printToLogger(getClass().toString(),e.toString());  //To change body of catch statement use File | Settings | File Templates.
         }
         return 0;
     }

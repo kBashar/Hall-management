@@ -4,6 +4,7 @@ import laplab.hallmanagement.Month;
 import laplab.lib.databasehelper.DataBaseHelper;
 import laplab.lib.databasehelper.QueryHelper;
 import laplab.lib.tablecreator.*;
+import sample.MakeLogger;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -58,7 +59,7 @@ public class MonthTable {
             Statement statement = connection.createStatement();
             return statement.executeUpdate(createStatementQuery);
         } catch (SQLException e) {
-            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            MakeLogger.printToLogger(getClass().toString(), e.toString());  //To change body of catch statement use File | Settings | File Templates.
             return -1;
         }
     }
@@ -77,7 +78,7 @@ public class MonthTable {
                 count = resultSet.getInt("monthcount");
             }
         } catch (SQLException e) {
-            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            MakeLogger.printToLogger(MonthTable.class.toString());  //To change body of catch statement use File | Settings | File Templates.
         }
         if (count == 0)  {
             HashMap map = new HashMap();

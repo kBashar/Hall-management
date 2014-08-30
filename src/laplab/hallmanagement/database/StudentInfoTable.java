@@ -1,6 +1,7 @@
 package laplab.hallmanagement.database;
 
 import laplab.lib.tablecreator.*;
+import sample.MakeLogger;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -79,7 +80,7 @@ public class StudentInfoTable {
             Statement statement = connection.createStatement();
             return statement.executeUpdate(statementQuery);
         } catch (SQLException e) {
-            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            MakeLogger.printToLogger(getClass().toString(), e.toString());  //To change body of catch statement use File | Settings | File Templates.
             return -1;
         }
     }

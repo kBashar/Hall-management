@@ -1,6 +1,7 @@
 package laplab.lib.databasehelper;
 
 import laplab.lib.tablecreator.CommonCharacters;
+import sample.MakeLogger;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -166,7 +167,7 @@ public class QueryHelper {
             resultSet = statement.executeQuery(queryString);
 
         } catch (SQLException e) {
-            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            MakeLogger.printToLogger(getClass().toString(), e.toString());  //To change body of catch statement use File | Settings | File Templates.
         }
         return resultSet;
     }

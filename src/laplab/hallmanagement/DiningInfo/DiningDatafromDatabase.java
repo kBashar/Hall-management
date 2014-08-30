@@ -6,6 +6,7 @@ import laplab.hallmanagement.Month;
 import laplab.hallmanagement.database.DataBaseConnection;
 import laplab.lib.databasehelper.QueryHelper;
 import laplab.lib.tablecreator.CommonCharacters;
+import sample.MakeLogger;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -200,8 +201,8 @@ public class DiningDatafromDatabase {
                 studentDiningInfo.addMonthlyInfo(monthlyInfo);
                 count++;
             }
-        } catch (SQLException e1) {
-            e1.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+        } catch (SQLException e) {
+            MakeLogger.printToLogger(getClass().toString(), e.toString());  //To change body of catch statement use File | Settings | File Templates.
 
         }
 

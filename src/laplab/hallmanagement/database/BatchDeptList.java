@@ -3,6 +3,7 @@ package laplab.hallmanagement.database;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import laplab.lib.databasehelper.QueryHelper;
+import sample.MakeLogger;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -27,7 +28,7 @@ public class BatchDeptList {
                 System.out.println(str);
             }
         } catch (SQLException e) {
-            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            MakeLogger.printToLogger(BatchDeptList.class.toString());  //To change body of catch statement use File | Settings | File Templates.
         }
         return list;
     }
@@ -43,7 +44,7 @@ public class BatchDeptList {
                 System.out.println(str);
             }
         } catch (SQLException e) {
-            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            MakeLogger.printToLogger(BatchDeptList.class.toString());  //To change body of catch statement use File | Settings | File Templates.
         }
         return list;
     }

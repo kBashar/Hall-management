@@ -43,7 +43,7 @@ public class GetDataFromDatabase {
                 resultSet.next();
             }
         } catch (SQLException e) {
-            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            MakeLogger.printToLogger(getClass().toString(),e.toString());  //To change body of catch statement use File | Settings | File Templates.
         }
         return studentInfoObservableList;
     }
@@ -67,7 +67,7 @@ public class GetDataFromDatabase {
             resultSet.close();
             System.out.println(count);
         } catch (SQLException e) {
-            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            MakeLogger.printToLogger(getClass().toString(),e.toString());  //To change body of catch statement use File | Settings | File Templates.
         }
         return studentInfoObservableList;
     }

@@ -4,6 +4,7 @@ import laplab.lib.tablecreator.Column;
 import laplab.lib.tablecreator.ColumnList;
 import laplab.lib.tablecreator.PrimaryKey;
 import laplab.lib.tablecreator.TableStatementCreator;
+import sample.MakeLogger;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -46,7 +47,7 @@ public class DepartmentTable {
             Statement statement = connection.createStatement();
             return statement.executeUpdate(statementQuery);
         } catch (SQLException e) {
-            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            MakeLogger.printToLogger(getClass().toString(), e.toString());  //To change body of catch statement use File | Settings | File Templates.
             return -1;
         }
     }

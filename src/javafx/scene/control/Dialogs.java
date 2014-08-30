@@ -1345,7 +1345,8 @@ public class Dialogs {
                     StyleManager.getInstance().getPseudoclassMask("active");
             // !CHANGE END!
 
-            @Override public long impl_getPseudoClassState() {
+            @Override
+            public long impl_getPseudoClassState() {
                 long mask = super.impl_getPseudoClassState();
                 if (getScene().getWindow().isFocused()) {
                     mask |= PSEUDO_CLASS_ACTIVE_MASK;

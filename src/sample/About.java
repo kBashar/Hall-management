@@ -28,7 +28,7 @@ public class About {
             parent = (Parent) fxmlLoader.load();
             scene = new Scene(parent);
         } catch (IOException e) {
-            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            MakeLogger.printToLogger(getClass().toString(),e.toString());  //To change body of catch statement use File | Settings | File Templates.
         }
     }
 

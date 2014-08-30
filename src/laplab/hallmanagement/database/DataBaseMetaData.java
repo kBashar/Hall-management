@@ -1,5 +1,7 @@
 package laplab.hallmanagement.database;
 
+import sample.MakeLogger;
+
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
 import java.sql.ResultSet;
@@ -19,7 +21,7 @@ public class DataBaseMetaData {
         try {
             metaData = connection.getMetaData();
         } catch (SQLException e) {
-            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            MakeLogger.printToLogger(getClass().toString(), e.toString());  //To change body of catch statement use File | Settings | File Templates.
         }
     }
 
@@ -30,7 +32,7 @@ public class DataBaseMetaData {
             ResultSet resultSet = metaData.getTables(null, null, tableName, null);
             exists = resultSet.next();
         } catch (SQLException e) {
-            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            MakeLogger.printToLogger(getClass().toString(),e.toString());  //To change body of catch statement use File | Settings | File Templates.
 
         }
         return exists;
@@ -43,7 +45,7 @@ public class DataBaseMetaData {
             ResultSet resultSet = metaData.getTables(null, null, tableName, null);
             exists = resultSet.next();
         } catch (SQLException e) {
-            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            MakeLogger.printToLogger(getClass().toString(),e.toString());  //To change body of catch statement use File | Settings | File Templates.
 
         }
         return exists;

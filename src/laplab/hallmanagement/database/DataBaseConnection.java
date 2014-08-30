@@ -2,6 +2,7 @@ package laplab.hallmanagement.database;
 
 
 import com.sun.org.apache.xerces.internal.util.SynchronizedSymbolTable;
+import sample.MakeLogger;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -19,14 +20,14 @@ public class DataBaseConnection {
         try {
             Class.forName("org.hsqldb.jdbcDriver");
         } catch (ClassNotFoundException e) {
-            e.printStackTrace();
+            MakeLogger.printToLogger(getClass().toString(), e.toString());
             return;
         }
 
         try {
             connection = DriverManager.getConnection("jdbc:hsqldb:file:database/Hall");
         } catch (SQLException e) {
-            e.printStackTrace();
+            MakeLogger.printToLogger(getClass().toString(),e.toString());
         }
 
         if (connection == null) {
@@ -36,7 +37,7 @@ public class DataBaseConnection {
         try {
             connection.close();
         } catch (SQLException e) {
-            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            MakeLogger.printToLogger(getClass().toString(),e.toString());  //To change body of catch statement use File | Settings | File Templates.
         }
 
     }
@@ -46,7 +47,7 @@ public class DataBaseConnection {
             // connection = DriverManager.getConnection("jdbc:hsqldb:file:database/Hall");
             return DriverManager.getConnection("jdbc:hsqldb:file:database/Hall");
         } catch (SQLException e) {
-            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            MakeLogger.printToLogger(DataBaseConnection.class.toString());  //To change body of catch statement use File | Settings | File Templates.
         }
         ;
         return null;
@@ -56,7 +57,7 @@ public class DataBaseConnection {
         try {
             connection = DriverManager.getConnection("jdbc:hsqldb:file:database/Hall");
         } catch (SQLException e) {
-            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            MakeLogger.printToLogger(getClass().toString(),e.toString());  //To change body of catch statement use File | Settings | File Templates.
             return false;
         }
         DataBaseMetaData metaData = new DataBaseMetaData(connection);
